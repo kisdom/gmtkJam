@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://h1lcdbkp72lo"]
 
-[ext_resource type="Script" uid="uid://dkcn7jkknyqk1" path="res://gmtk-jam/Scenes/counter.gd" id="1_0e0em"]
+[ext_resource type="Script" uid="uid://dkcn7jkknyqk1" path="res://gmtk-jam/Scripts/counter.gd" id="1_0e0em"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1402822943]
 
