@@ -1,17 +1,20 @@
 [gd_scene format=3 uid="uid://h1lcdbkp72lo"]
 
 [ext_resource type="Script" uid="uid://dkcn7jkknyqk1" path="res://gmtk-jam/Scripts/counter.gd" id="1_0e0em"]
+[ext_resource type="Script" uid="uid://bvdnijls0tnhx" path="res://gmtk-jam/Scripts/hud.gd" id="1_ei7ig"]
+[ext_resource type="Script" uid="uid://cn3f7bhbayomb" path="res://gmtk-jam/Scripts/button.gd" id="3_q7mef"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1402822943]
+script = ExtResource("1_ei7ig")
 
 [node name="Counter" type="Node2D" parent="." unique_id=655508980]
 script = ExtResource("1_0e0em")
 
-[node name="Label" type="Label" parent="Counter" unique_id=1916572316]
-offset_left = 266.0
-offset_top = 11.0
-offset_right = 951.0
-offset_bottom = 119.0
+[node name="TimerText" type="Label" parent="Counter" unique_id=1916572316]
+offset_left = 241.0
+offset_top = 7.0
+offset_right = 926.0
+offset_bottom = 115.0
 theme_override_font_sizes/font_size = 78
 text = "00:05:00"
 horizontal_alignment = 1
@@ -20,4 +23,18 @@ vertical_alignment = 1
 [node name="Timer" type="Timer" parent="Counter" unique_id=1173451065]
 autostart = true
 
+[node name="Button" type="Button" parent="." unique_id=338712016]
+offset_left = 801.0
+offset_top = 30.0
+offset_right = 930.0
+offset_bottom = 91.0
+theme_override_colors/icon_normal_color = Color(0.72056246, 0.31042576, 0.027957998, 1)
+theme_override_font_sizes/font_size = 30
+text = "+5 sec"
+script = ExtResource("3_q7mef")
+
+[connection signal="lastMinute" from="Counter" to="." method="_on_counter_last_minute"]
 [connection signal="timeout" from="Counter/Timer" to="Counter" method="_on_timer_timeout"]
+[connection signal="addTime" from="Button" to="Counter" method="_on_button_add_time"]
+[connection signal="pressed" from="Button" to="Counter" method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

@@ -1,21 +1,32 @@
 extends Node2D
-# A visszaszámláló kezdőértéke másodpercben
-@export var time_left: float = 60.0
-var countdownText: String = "00:05:00"
+@export var time_left: float = 62.0
+var red = Color(1.0,0.0,0.0,1.0)
+var white = Color(1.0,1.0,1.0,1.0)
+signal lastMinute
+signal worldEnd
+var minutes
+var seconds
 
 func _process(delta: float) -> void:
 	if time_left > 0:
 		time_left -= delta
-		
-		# Kerekítés és szép formázás (pl. 01:05)
-		var minutes: int = int(time_left) / 60
-		var seconds: int = int(time_left) % 60
-		countdownText = "%02d:%02d" % [minutes, seconds]
+		minutes = int(time_left) / 60
+		seconds = int(time_left) % 60
+		$TimerText.text = "%02d:%02d" % [minutes, seconds]
+		if (time_left <= 60):
+			$TimerText.set("theme_override_colors/font_color",red)
+			lastMinute.emit()
+		else:
+			$TimerText.set("theme_override_colors/font_color",white)
 	else:
 		time_left = 0
-		countdownText = "00:00"
+		$TimerText.text = "00:00"
 		on_timer_finished()
 
 func on_timer_finished() -> void:
-	# Itt adhatod meg, mi történjen, ha lejárt az idő
 	print("Lejárt az idő!")
+	worldEnd.emit()
+
+func _on_button_add_time(timeIncrease: int) -> void:
+	time_left = time_left + timeIncrease
+	$TimerText.text = "%02d:%02d" % [minutes, seconds]
