@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://h1lcdbkp72lo"]
+
+[ext_resource type="Script" uid="uid://dkcn7jkknyqk1" path="res://gmtk-jam/Scenes/counter.gd" id="1_0e0em"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1402822943]
+
+[node name="Counter" type="Node2D" parent="." unique_id=655508980]
+script = ExtResource("1_0e0em")
+
+[node name="Label" type="Label" parent="Counter" unique_id=1916572316]
+offset_left = 266.0
+offset_top = 11.0
+offset_right = 951.0
+offset_bottom = 119.0
+theme_override_font_sizes/font_size = 78
+text = "00:05:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="Counter" unique_id=1173451065]
+autostart = true
+
+[connection signal="timeout" from="Counter/Timer" to="Counter" method="_on_timer_timeout"]
