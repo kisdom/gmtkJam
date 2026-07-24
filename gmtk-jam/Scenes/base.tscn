@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://crux47vevfub7"]
+
+[ext_resource type="Texture2D" uid="uid://bp30upw7dvq03" path="res://gmtk-jam/resources/base.png" id="1_hcabe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lwnd1"]
+radius = 225.0
+
+[node name="Base" type="TextureButton" unique_id=232262875]
+offset_right = 512.0
+offset_bottom = 512.0
+scale = Vector2(0.2, 0.2)
+offset_transform_scale = Vector2(0.255, 0.255)
+texture_normal = ExtResource("1_hcabe")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1912250416]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=349800314]
+position = Vector2(265, 260)
+shape = SubResource("CircleShape2D_lwnd1")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=339151499]
+visible = false
+layout_mode = 0
+offset_top = -69.99999
+offset_right = 519.99994
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=890609604]
+layout_mode = 2
+
+[node name="Defense" type="Button" parent="PanelContainer/HBoxContainer" unique_id=1347272826]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Defense"
+
+[node name="Radar" type="Button" parent="PanelContainer/HBoxContainer" unique_id=511885401]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Radar"
+
+[node name="Rocket" type="Button" parent="PanelContainer/HBoxContainer" unique_id=751642340]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Rocket"
