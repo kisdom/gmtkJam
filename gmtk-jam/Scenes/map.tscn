@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bu5eaofwwg47h" path="res://gmtk-jam/resources/BlankMap-World-v5.png" id="1_2f7s3"]
 [ext_resource type="PackedScene" uid="uid://crux47vevfub7" path="res://gmtk-jam/Scenes/base.tscn" id="2_bgc4m"]
+[ext_resource type="Script" uid="uid://dnpjuijyexfya" path="res://gmtk-jam/Scripts/camera_2d.gd" id="3_bgc4m"]
 
 [node name="Map" type="Node2D" unique_id=578421521]
 
@@ -14,3 +15,6 @@ offset_left = -1113.0
 offset_top = -305.0
 offset_right = -601.0
 offset_bottom = 207.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1898261981]
+script = ExtResource("3_bgc4m")

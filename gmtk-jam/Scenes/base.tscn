@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://crux47vevfub7"]
 
 [ext_resource type="Texture2D" uid="uid://bp30upw7dvq03" path="res://gmtk-jam/resources/base.png" id="1_hcabe"]
+[ext_resource type="Script" uid="uid://c662npc40iday" path="res://gmtk-jam/Scripts/base.gd" id="2_a1rxy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lwnd1"]
 radius = 225.0
@@ -11,6 +12,7 @@ offset_bottom = 512.0
 scale = Vector2(0.2, 0.2)
 offset_transform_scale = Vector2(0.255, 0.255)
 texture_normal = ExtResource("1_hcabe")
+script = ExtResource("2_a1rxy")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1912250416]
 
@@ -42,3 +44,5 @@ text = "Radar"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Rocket"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
