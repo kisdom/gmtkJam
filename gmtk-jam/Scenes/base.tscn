@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bp30upw7dvq03" path="res://gmtk-jam/resources/base.png" id="1_hcabe"]
 [ext_resource type="Script" uid="uid://c662npc40iday" path="res://gmtk-jam/Scripts/base.gd" id="2_a1rxy"]
+[ext_resource type="Script" uid="uid://dg30iw5ky5oii" path="res://gmtk-jam/Scripts/defense.gd" id="3_od4rh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lwnd1"]
 radius = 225.0
@@ -34,6 +35,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Defense"
+script = ExtResource("3_od4rh")
 
 [node name="Radar" type="Button" parent="PanelContainer/HBoxContainer" unique_id=511885401]
 layout_mode = 2
@@ -46,3 +48,4 @@ size_flags_horizontal = 3
 text = "Rocket"
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Defense" to="." method="_on_defense_pressed"]

@@ -1,5 +1,9 @@
 extends TextureButton
+
+signal action_requested(base_node, action_type)
+
 @onready var panel_container: PanelContainer = $PanelContainer
+
 var isPressed: bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -20,3 +24,8 @@ func _on_pressed() -> void:
 		panel_container.visible = true
 	else:
 		panel_container.visible = false
+
+
+func _on_defense_pressed() -> void:
+	panel_container.hide()
+	action_requested.emit(self, "defend")

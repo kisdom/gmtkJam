@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://52efapyohl7s"]
 
 [ext_resource type="Texture2D" uid="uid://bu5eaofwwg47h" path="res://gmtk-jam/resources/BlankMap-World-v5.png" id="1_2f7s3"]
+[ext_resource type="Script" uid="uid://dunsshtpbg7gy" path="res://gmtk-jam/Scripts/map.gd" id="1_fh8gw"]
 [ext_resource type="PackedScene" uid="uid://crux47vevfub7" path="res://gmtk-jam/Scenes/base.tscn" id="2_bgc4m"]
 [ext_resource type="Script" uid="uid://dnpjuijyexfya" path="res://gmtk-jam/Scripts/camera_2d.gd" id="3_bgc4m"]
 
 [node name="Map" type="Node2D" unique_id=578421521]
+script = ExtResource("1_fh8gw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1903531116]
 position = Vector2(1424, 635)
@@ -20,3 +22,5 @@ offset_bottom = 774.99994
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1898261981]
 position = Vector2(186, 783)
 script = ExtResource("3_bgc4m")
+
+[connection signal="action_requested" from="Base" to="." method="_on_base_action_requested"]
