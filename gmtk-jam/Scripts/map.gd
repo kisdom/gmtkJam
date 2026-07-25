@@ -1,5 +1,5 @@
 extends Node2D
-
+@export var rocket_scene: PackedScene
 enum State{
 	idle,
 	rocket,
@@ -26,3 +26,19 @@ func _on_send_rocket(base_node):
 	
 func _on_radar_search(base_node):
 	pass
+
+
+func _on_base_action_requested(base_node: Variant, action_type: Variant) -> void:
+	print(base_node.position)
+	var rocket = rocket_scene.instantiate()
+	add_child(rocket)
+	var rocket_spawn_location = rocket.get_node("Path2D/PathFollow2D")
+	rocket_spawn_location.progress_ratio = base_node.global_position
+	rocket.position = rocket_spawn_location
+	
+func send_rocket(base_node: Variant) -> void:
+	var rocket = rocket_scene.instantiate()
+	add_child(rocket)
+	var rocket_spawn_location = $Rocket/Path2D
+	rocket_spawn_location.progress_ratio = randf()
+	rocket.position = rocket_spawn_location.position
