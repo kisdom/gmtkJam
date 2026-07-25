@@ -24,6 +24,7 @@ script = ExtResource("1_kmqw0")
 acceleration_profile = SubResource("Curve_qgxfr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=305272665]
+visible = false
 loop = false
 
 [node name="RocketInnerHitbox" type="Area2D" parent="PathFollow2D" unique_id=1835927780]

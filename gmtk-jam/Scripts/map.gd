@@ -20,12 +20,12 @@ var defense_line_sate: DefenseLineState = DefenseLineState.START
 # A logika futtatásához szükséges átmeneti változók
 var active_base = null
 var active_defense_line: Node2D = null
+var rocket = null
 
 func _ready() -> void:
 	SignalBus.prepare_defense.connect(_on_prepare_defense)
 	SignalBus.send_rocket.connect(_on_send_rocket)
 	SignalBus.radar_search.connect(_on_radar_search)
-	SignalBus.select_base.connect(_on_select_base)
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# Mégse akció jobb egérgombbal (vagy ESC-pel)
@@ -36,14 +36,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	# --- VÉDELMI VONAL RAJZOLÁS (2 kattintásos logika) ---
 	if state == State.DEFENSE and active_defense_line != null:
 		_draw_defense_line(event)
-	
-# --- BASE SIGNALBUS CALLBACK-EK ---
-func _on_select_base(base_node) -> void:
+		
 	if state == State.ROCKET:
-		_spawn_rocket(get_base_pos(active_base), base_node)
-		active_base = null
-		state = State.IDLE
-
+		_draw_rocket_line(event)
+			
+# --- BASE SIGNALBUS CALLBACK-EK ---
 func _on_prepare_defense(base_node) -> void:
 	# Ha már folyamatban volt egy rajzolás, töröljük a félkész vonalat
 	_cancel_current_action()
@@ -62,6 +59,8 @@ func _on_send_rocket(base_node) -> void:
 	_cancel_current_action()
 	state = State.ROCKET
 	active_base = base_node
+	_spawn_rocket(get_base_pos(base_node))
+	_set_bases_interactable(false)
 
 func _on_radar_search(base_node) -> void:
 	_cancel_current_action()
@@ -71,14 +70,14 @@ func _on_radar_search(base_node) -> void:
 	# Itt futtathatod a radar logikádat (pl. felfedi a környező területet)
 	state = State.IDLE
 	
-# --- SEGÉDFÜGGVÉNYEK ---
+# --- JÁTÉK LOGIKA ---
 
-func _spawn_rocket(start_pos: Vector2, target: TextureButton) -> void:
-	var rocket = rocket_scene.instantiate()
+func _spawn_rocket(start_pos: Vector2) -> void:
+	rocket = rocket_scene.instantiate()
 	add_child(rocket)
 	rocket.global_position = start_pos
+	rocket.setup(start_pos)
 	# Ha a rakéta scriptjében van setup/launch függvény:
-	rocket.launch(start_pos, get_base_pos(target), target)
 
 func _draw_defense_line(event: InputEvent) -> void:
 	if defense_line_sate == DefenseLineState.START:
@@ -100,6 +99,16 @@ func _draw_defense_line(event: InputEvent) -> void:
 			active_defense_line = null
 			state = State.IDLE
 
+func _draw_rocket_line(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("left_click"):
+		rocket.launch(_get_hovered_base_area())
+		# Kilövés megtörtént, visszaállunk alapállapotba:
+		state = State.IDLE
+		active_base = null
+		_set_bases_interactable(true)
+	elif event is InputEventMouseMotion:
+		rocket.calculate_trajectory(get_global_mouse_position())
+
 func _cancel_current_action() -> void:
 	if active_defense_line != null and state == State.DEFENSE:
 		active_defense_line.queue_free()
@@ -107,6 +116,35 @@ func _cancel_current_action() -> void:
 	
 	active_base = null
 	state = State.IDLE
+	_set_bases_interactable(true)
+
+# --- SEGÉDFÜGGVÉNYEK ---
 
 func get_base_pos(base_node) -> Vector2:
 	return base_node.global_position + ((base_node.size / 2.0) * base_node.scale)
+
+# Kikapcsolja vagy bekapcsolja a bázisok gomb-funkcióját
+func _set_bases_interactable(is_interactable: bool) -> void:
+	for base in $Bases.get_children():
+		if is_interactable:
+			# Visszaállítjuk az alapértelmezett állapotot (reagál a kattintásra)
+			base.mouse_filter = Control.MOUSE_FILTER_STOP
+		else:
+			# Célzáskor a bázis teljesen "láthatatlan" az egér számára, 
+			# így a kattintás továbbmegy a térkép _unhandled_input-jába!
+			base.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+# Visszaadja az egér alatti Bázist (Area2D-t), vagy null-t, ha üres helyre kattintottál
+func _get_hovered_base_area() -> TextureButton:
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsPointQueryParameters2D.new()
+	query.position = get_global_mouse_position()
+	query.collide_with_areas = true
+	query.collide_with_bodies = false
+	
+	var results = space_state.intersect_point(query)
+	
+	for result in results:
+		if result.collider is Area2D  and result.collider.owner is TextureButton:
+			return result.collider.owner
+	return null

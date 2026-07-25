@@ -1,4 +1,5 @@
 extends Path2D
+@onready var rocket_body: PathFollow2D = $PathFollow2D
 
 # --- INSPECTOR BEÁLLÍTÁSOK ---
 @export var acceleration_profile: Curve # Gyorsulási profil (Curve Presets: Ease In, Ease Out, etc.)
@@ -16,14 +17,17 @@ extends Path2D
 # --- BELSŐ VÁLTOZÓK ---
 var current_speed: float = 0.0
 var is_flying: bool = false
+var real_start
 var target_base
 
-func launch(start_pos: Vector2, target_pos: Vector2, target: TextureButton) -> void:
+func setup(start_pos: Vector2):
+	real_start = start_pos
+
+func calculate_trajectory(target_pos: Vector2) -> void:
 	# A Path2D maga a globális (0, 0) origóhoz igazodik, hogy a pontjai világkoordináták legyenek
 	global_position = Vector2.ZERO
 	
 	# Ha a bázisod egy TextureButton, itt a középpontot számoljuk [cite: 337, 339]
-	var real_start = start_pos
 	var real_target = target_pos
 	
 	var new_curve = Curve2D.new()
@@ -51,7 +55,7 @@ func launch(start_pos: Vector2, target_pos: Vector2, target: TextureButton) -> v
 	var baseline_dir = (real_target - real_start).normalized()
 	var smooth_factor = distance * 0.25
 	
-	# A csúcsponton (Point 1) a görbe érintője marad az alapvonallal párhuzamos [cite: 348, 349]
+	# A csúcsponton (Point 1) a görbe érintője marad az alapvonallal párhuzamos
 	new_curve.set_point_in(1, -baseline_dir * smooth_factor)
 	new_curve.set_point_out(1, baseline_dir * smooth_factor)
 	
@@ -69,15 +73,17 @@ func launch(start_pos: Vector2, target_pos: Vector2, target: TextureButton) -> v
 		line_2d.scale = Vector2.ONE
 		line_2d.clear_points()
 		
-		# A beépített get_baked_points() adja a lágy ívet [cite: 394, 395]
+		# A beépített get_baked_points() adja a lágy ívet
 		for pt in new_curve.get_baked_points():
 			line_2d.add_point(pt)
-			
+
+func launch(target: TextureButton) -> void:
 	# --- 4. INDÍTÁS ---
 	current_speed = base_speed
 	path_follow.progress = 0.0
 	is_flying = true
 	target_base = target
+	rocket_body.show()
 
 func _process(delta: float) -> void:
 	if not is_flying:
@@ -99,14 +105,15 @@ func _process(delta: float) -> void:
 	
 	# Becsapódás ellenőrzése (amikor a pálya végére ért)
 	if path_follow.progress_ratio >= 1.0:
-		target_base._base_destruction()
+		if target_base != null:
+			target_base._base_destruction()
 		_on_impact()
 
 func _on_impact() -> void:
 	is_flying = false
 	# Robbanási effekt/hang helye
 	SignalBus.rocket_destroyed.emit()
-	queue_free()
+	self_destruct()
 	
 func self_destruct():
 	is_flying = false

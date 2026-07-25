@@ -17,7 +17,6 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_pressed() -> void:
-	SignalBus.select_base.emit(self)
 	isPressed = not isPressed
 	if isPressed:
 		panel_container.visible = true

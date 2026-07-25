@@ -14,4 +14,3 @@ func _rocket_explosion():
 	playing = false
 	stream = load("res://gmtk-jam/resources/446625__idkmrgarcia__explosion.wav")
 	playing = true
-	print("Base destroyed")

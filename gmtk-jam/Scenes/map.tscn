@@ -19,7 +19,8 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_2f7s3")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1898261981]
-position = Vector2(738, 410)
+position = Vector2(1087, 569)
+zoom = Vector2(0.615, 0.615)
 script = ExtResource("3_bgc4m")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=526320805]

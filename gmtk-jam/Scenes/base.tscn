@@ -26,7 +26,7 @@ offset_transform_scale = Vector2(0.255, 0.255)
 texture_normal = ExtResource("1_hcabe")
 script = ExtResource("2_a1rxy")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1912250416]
+[node name="Area2D" type="Area2D" parent="." unique_id=1912250416 groups=["Base"]]
 position = Vector2(-165, -95.00002)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=349800314]
