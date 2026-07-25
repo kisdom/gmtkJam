@@ -11,6 +11,7 @@
 
 [node name="Map" type="Node2D" unique_id=578421521]
 script = ExtResource("1_fh8gw")
+rocket_scene = ExtResource("5_fg2df")
 defense_line_scene = ExtResource("2_fg2df")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1903531116]
