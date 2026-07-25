@@ -8,10 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://de730r0kpvpg2" path="res://gmtk-jam/Scenes/rocket.tscn" id="5_fg2df"]
 [ext_resource type="Texture2D" uid="uid://i0b3or2uvksu" path="res://gmtk-jam/resources/target.png" id="6_pko33"]
 [ext_resource type="Script" uid="uid://csqupbm82qelw" path="res://gmtk-jam/Scripts/audio_stream_player.gd" id="7_2hvwk"]
+[ext_resource type="Texture2D" uid="uid://i0b3or2uvksu" path="res://gmtk-jam/resources/target.png" id="6_pko33"]
+[ext_resource type="Script" uid="uid://csqupbm82qelw" path="res://gmtk-jam/Scripts/audio_stream_player.gd" id="7_2hvwk"]
 
 [node name="Map" type="Node2D" unique_id=578421521]
 script = ExtResource("1_fh8gw")
 rocket_scene = ExtResource("5_fg2df")
+defense_line_scene = ExtResource("2_fg2df")
 defense_line_scene = ExtResource("2_fg2df")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1903531116]
