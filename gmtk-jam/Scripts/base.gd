@@ -41,3 +41,4 @@ func _base_destruction() -> void:
 	print(size)
 	$PanelContainer.visible = false
 	disabled = true
+	SignalBus.base_destroyed.emit(self)

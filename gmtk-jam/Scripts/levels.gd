@@ -38,9 +38,16 @@ func unload_level(level_name: String):
 func _load_level(level_name: String):
 	var level_node = get_node(level_name)
 	print(level_node.get_children())
-	# Ugyanez a betöltésnél: megvárjuk a frame végét, majd áttesszük a map alá
+	
+	# 1. Áttesszük a map alá (alapból a lista végére kerül)
 	level_node.call_deferred("reparent", map, false)
-	var Bases = level_node.get_child(0)
-	for base in Bases.get_children():
+	
+	# 2. Utasítjuk a map-et, hogy amint megkapta a node-ot, tegye a 0. indexre!
+	map.call_deferred("move_child", level_node, 0)
+	
+	# 3. Bázisok aktiválása (Egy apró módosítással a biztonság kedvéért!)
+	var bases = level_node.get_node("Bases") 
+	
+	for base in bases.get_children():
 		base.show() 
 		base.disabled = false
