@@ -13,7 +13,7 @@ position = Vector2(1424, 635)
 scale = Vector2(2, 2)
 texture = ExtResource("1_2f7s3")
 
-[node name="Base" parent="." unique_id=232262875 instance=ExtResource("2_bgc4m")]
+[node name="Base" parent="." unique_id=232262875 groups=["bases"] instance=ExtResource("2_bgc4m")]
 offset_left = 440.99988
 offset_top = 262.99994
 offset_right = 952.9999
@@ -23,4 +23,14 @@ offset_bottom = 774.99994
 position = Vector2(186, 783)
 script = ExtResource("3_bgc4m")
 
-[connection signal="action_requested" from="Base" to="." method="_on_base_action_requested"]
+[node name="BaseAfrica" parent="." unique_id=635459445 groups=["bases"] instance=ExtResource("2_bgc4m")]
+offset_left = 1208.0
+offset_top = 472.0
+offset_right = 1720.0
+offset_bottom = 984.0
+
+[node name="BaseSAmerica" parent="." unique_id=1589466114 groups=["bases"] instance=ExtResource("2_bgc4m")]
+offset_left = 741.0
+offset_top = 741.0
+offset_right = 1253.0
+offset_bottom = 1253.0
