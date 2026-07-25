@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://c662npc40iday" path="res://gmtk-jam/Scripts/base.gd" id="2_a1rxy"]
 [ext_resource type="Script" uid="uid://dg30iw5ky5oii" path="res://gmtk-jam/Scripts/defense.gd" id="3_od4rh"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lwnd1"]
-radius = 225.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfd48"]
+size = Vector2(490, 460.00006)
 
 [node name="Base" type="TextureButton" unique_id=232262875]
 offset_left = -52.999996
@@ -18,17 +18,20 @@ texture_normal = ExtResource("1_hcabe")
 script = ExtResource("2_a1rxy")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1912250416]
+position = Vector2(-155, -119.999985)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=349800314]
-position = Vector2(265, 260)
-shape = SubResource("CircleShape2D_lwnd1")
+position = Vector2(409.99994, 384.99994)
+scale = Vector2(0.9999997, 0.9999997)
+shape = SubResource("RectangleShape2D_qfd48")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=339151499]
 visible = false
 layout_mode = 0
-offset_top = -69.99999
-offset_right = 519.99994
-offset_bottom = 40.0
+offset_left = -100.0
+offset_top = -280.0
+offset_right = 659.9999
+offset_bottom = 49.99994
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=890609604]
 layout_mode = 2
@@ -36,17 +39,20 @@ layout_mode = 2
 [node name="Defense" type="Button" parent="PanelContainer/HBoxContainer" unique_id=1347272826]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 56
 text = "Defense"
 script = ExtResource("3_od4rh")
 
 [node name="Radar" type="Button" parent="PanelContainer/HBoxContainer" unique_id=511885401]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 56
 text = "Radar"
 
 [node name="Rocket" type="Button" parent="PanelContainer/HBoxContainer" unique_id=751642340]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 56
 text = "Rocket"
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
