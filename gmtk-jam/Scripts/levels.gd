@@ -55,3 +55,6 @@ func _load_level(level_name: String):
 	if level_node.has_node("Sprite2D"):
 		var sprite = level_node.get_node("Sprite2D")
 		sprite.show()
+		
+	# 4. Enemy activation
+	$"../DoomRocketCountdown".start()	

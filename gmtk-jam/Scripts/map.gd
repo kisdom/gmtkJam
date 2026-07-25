@@ -26,6 +26,7 @@ func _ready() -> void:
 	SignalBus.prepare_defense.connect(_on_prepare_defense)
 	SignalBus.send_rocket.connect(_on_send_rocket)
 	SignalBus.radar_search.connect(_on_radar_search)
+	SignalBus.enemy_rocket_launch.connect(_enemy_rocket_launch)	
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# Mégse akció jobb egérgombbal (vagy ESC-pel)
@@ -147,3 +148,8 @@ func _get_hovered_base_area() -> TextureButton:
 		if result.collider is Area2D  and result.collider.owner is TextureButton:
 			return result.collider.owner
 	return null
+	
+func _enemy_rocket_launch(start: TextureButton, target: TextureButton):
+	_spawn_rocket(start.position)
+	print("entering launch mode")
+	rocket.launch(target)
