@@ -20,29 +20,29 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_2f7s3")
 
 [node name="Base" parent="." unique_id=232262875 groups=["bases"] instance=ExtResource("2_bgc4m")]
-offset_left = 440.99988
-offset_top = 262.99994
-offset_right = 952.9999
-offset_bottom = 774.99994
+offset_left = 382.0
+offset_top = 380.0
+offset_right = 894.0
+offset_bottom = 892.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1898261981]
 position = Vector2(186, 783)
 script = ExtResource("3_bgc4m")
 
 [node name="BaseAfrica" parent="." unique_id=635459445 groups=["bases"] instance=ExtResource("2_bgc4m")]
-offset_left = 1208.0
-offset_top = 472.0
-offset_right = 1720.0
-offset_bottom = 984.0
+offset_left = 1677.0
+offset_top = 426.99997
+offset_right = 2189.0
+offset_bottom = 939.0
 
 [node name="BaseSAmerica" parent="." unique_id=1589466114 groups=["bases"] instance=ExtResource("2_bgc4m")]
-offset_left = 741.0
-offset_top = 741.0
-offset_right = 1253.0
-offset_bottom = 1253.0
+offset_left = 1415.0
+offset_top = 780.0
+offset_right = 1927.0
+offset_bottom = 1292.0
 
 [node name="Target" type="Sprite2D" parent="." unique_id=1165269383]
-position = Vector2(1733.5, 254.05127)
+position = Vector2(1945.9999, 314)
 scale = Vector2(1.5222226, 1.3988606)
 texture = ExtResource("6_pko33")
 
@@ -57,7 +57,7 @@ volume_db = 1.0
 script = ExtResource("7_2hvwk")
 
 [node name="Base2" parent="." unique_id=1199527124 instance=ExtResource("2_bgc4m")]
-offset_left = 719.0
-offset_top = 235.0
-offset_right = 1231.0
-offset_bottom = 747.0
+offset_left = 666.0
+offset_top = 144.99998
+offset_right = 1178.0
+offset_bottom = 657.0

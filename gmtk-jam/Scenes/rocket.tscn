@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dy8fsum11qldp" path="res://gmtk-jam/resources/purerocket.png" id="2_qfd48"]
 
 [sub_resource type="Curve2D" id="Curve2D_qfd48"]
+bake_interval = 0.01
 
-[sub_resource type="Curve" id="Curve_qfd48"]
-_limits = [0.0, 10.0, 0.0, 10.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(10, 10), 1.4, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_qgxfr"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhp73"]
@@ -17,8 +17,7 @@ height = 98.0
 [node name="Rocket" type="Path2D" unique_id=380125543]
 curve = SubResource("Curve2D_qfd48")
 script = ExtResource("1_kmqw0")
-acceleration_profile = SubResource("Curve_qfd48")
-max_height = 60.0
+acceleration_profile = SubResource("Curve_qgxfr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=305272665]
 loop = false
@@ -37,6 +36,7 @@ texture = ExtResource("2_qfd48")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=446629618]
 top_level = true
+z_index = 10
 rotation = 1.5707964
 width = 5.0
 default_color = Color(0.83137256, 0.29411766, 0.21176471, 1)

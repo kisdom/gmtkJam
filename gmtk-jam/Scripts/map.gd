@@ -40,7 +40,7 @@ func _unhandled_input(event: InputEvent) -> void:
 # --- BASE SIGNALBUS CALLBACK-EK ---
 func _on_select_base(base_node) -> void:
 	if state == State.ROCKET:
-		_spawn_rocket(active_base.global_position, base_node)
+		_spawn_rocket(get_base_pos(active_base), base_node)
 		active_base = null
 		state = State.IDLE
 
@@ -56,7 +56,7 @@ func _on_prepare_defense(base_node) -> void:
 	if defense_line_scene:
 		active_defense_line = defense_line_scene.instantiate()
 		add_child(active_defense_line)
-		active_defense_line.setup(base_node.global_position)
+		active_defense_line.setup(get_base_pos(base_node))
 
 func _on_send_rocket(base_node) -> void:
 	_cancel_current_action()
@@ -78,7 +78,7 @@ func _spawn_rocket(start_pos: Vector2, target: TextureButton) -> void:
 	add_child(rocket)
 	rocket.global_position = start_pos
 	# Ha a rakéta scriptjében van setup/launch függvény:
-	rocket.launch(start_pos, target.global_position)
+	rocket.launch(start_pos, get_base_pos(target))
 
 func _draw_defense_line(event: InputEvent) -> void:
 	if defense_line_sate == DefenseLineState.START:
@@ -107,3 +107,6 @@ func _cancel_current_action() -> void:
 	
 	active_base = null
 	state = State.IDLE
+
+func get_base_pos(base_node) -> Vector2:
+	return base_node.global_position + ((base_node.size / 2.0) * base_node.scale)

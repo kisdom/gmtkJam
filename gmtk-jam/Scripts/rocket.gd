@@ -4,7 +4,9 @@ extends Path2D
 @export var acceleration_profile: Curve # Gyorsulási profil (Curve Presets: Ease In, Ease Out, etc.)
 @export var base_speed: float = 200.0   # Alapsebesség (pixel / sec)
 @export var max_acceleration: float = 400.0 # Maximális plusz gyorsulás
-@export var max_height: float = 600.0   # Az ív csúcspontjának magassága pixelben
+@export var max_curve_height: float = 300.0   # Az ív csúcspontjának magassága pixelben
+# Add hozzá ezt a sort! Állítsd be az Inspectorban a világtérképed pontos Y közepére:
+@export var map_center_y: float = 540.0
 
 # --- CHILD NODE HIVATKOZÁSOK ---
 @onready var path_follow: PathFollow2D = $PathFollow2D
@@ -16,36 +18,63 @@ var current_speed: float = 0.0
 var is_flying: bool = false
 
 func launch(start_pos: Vector2, target_pos: Vector2) -> void:
-	# A Path2D maga a globális (0, 0) origóhoz igazodik, hogy a pontjai világkoordináták legyenek
 	global_position = Vector2.ZERO
 	
-	# 1. PARABOLAPÁLYA GÖRBE ÉPÍTÉSE (Curve2D generálása kódból)
+	# Ha a bázisod egy TextureButton, itt a középpontot számoljuk [cite: 337, 339]
+	var real_start = start_pos
+	var real_target = target_pos
+	
 	var new_curve = Curve2D.new()
 	
-	# Ív csúcspontja (a kezdő- és végpont felezője felett, Y irányban negatív eltolással)
-	var mid_pos = start_pos.lerp(target_pos, 0.5) + Vector2(0, -max_height)
+	# Távolság és arányos magasság
+	var distance = real_start.distance_to(real_target)
+	var calculated_height = clamp(distance * 0.3, 50.0, max_curve_height)
 	
-	# Pontok hozzáadása a görbéhez
-	new_curve.add_point(start_pos)
+	# --- 1. A TÜKRÖZÉS LOGIKÁJA ---
+	# Megnézzük, hogy az indítási pont a térkép közepe alatt van-e (Godotban a lefelé a +Y)
+	var is_bottom_half = real_start.y > map_center_y
+	
+	# Ha lent van, lefelé domborítunk (+1), ha fent van, felfelé (-1)
+	var height_dir = 1.0 if is_bottom_half else -1.0
+	
+	# A felezőpont eltolva a megfelelő irányba
+	var mid_pos = real_start.lerp(real_target, 0.5) + Vector2(0, calculated_height * height_dir)
+	
+	# PONTOK HOZZÁADÁSA
+	new_curve.add_point(real_start)
 	new_curve.add_point(mid_pos)
-	new_curve.add_point(target_pos)
+	new_curve.add_point(real_target)
 	
-	# Görbület/Kerekítés beállítása a kezdő- és végpontoknál
-	new_curve.set_point_out(0, Vector2(0, -max_height * 0.5))
-	new_curve.set_point_in(2, Vector2(0, -max_height * 0.5))
+	# --- 2. AZ IRÁNYÍTÓKAROK (BEZIER ÉRINTŐK) BEÁLLÍTÁSA ---
+	var baseline_dir = (real_target - real_start).normalized()
+	var smooth_factor = distance * 0.25
+	
+	# A csúcsponton (Point 1) a görbe érintője marad az alapvonallal párhuzamos [cite: 348, 349]
+	new_curve.set_point_in(1, -baseline_dir * smooth_factor)
+	new_curve.set_point_out(1, baseline_dir * smooth_factor)
+	
+	# A kezdő és végpontokból a height_dir alapján megfelelő irányba (felfelé vagy lefelé) indul az ív
+	new_curve.set_point_out(0, Vector2(0, calculated_height * height_dir * 0.5))
+	new_curve.set_point_in(2, Vector2(0, calculated_height * height_dir * 0.5))
 	
 	self.curve = new_curve
 	
-	# 2. PIROS NYOMVONAL KIRAJZOLÁSA (Line2D)
+	# --- 3. PIROS NYOMVONAL FRISSÍTÉSE ---
 	if line_2d:
-		line_2d.points = new_curve.get_baked_points()
-		print(new_curve.get_baked_points())
-	
-	# 3. INDÍTÁS
+		line_2d.top_level = false
+		line_2d.position = Vector2.ZERO
+		line_2d.rotation = 0.0
+		line_2d.scale = Vector2.ONE
+		line_2d.clear_points()
+		
+		# A beépített get_baked_points() adja a lágy ívet [cite: 394, 395]
+		for pt in new_curve.get_baked_points():
+			line_2d.add_point(pt)
+			
+	# --- 4. INDÍTÁS ---
 	current_speed = base_speed
 	path_follow.progress = 0.0
 	is_flying = true
-
 func _process(delta: float) -> void:
 	if not is_flying:
 		return
