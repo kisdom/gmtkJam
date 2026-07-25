@@ -1,12 +1,15 @@
 extends Node2D
 
 enum State{
-	idle,
-	rocket,
-	defense,
-	radar
+	IDLE,
+	ROCKET,
+	DEFENSE,
+	RADAR
 }
-# Called when the node enters the scene tree for the first time.
+
+@export var defense_line_scene: PackedScene
+
+var state: State = State.IDLE
 
 func _ready() -> void:
 	SignalBus.prepare_defense.connect(_on_prepare_defense)
