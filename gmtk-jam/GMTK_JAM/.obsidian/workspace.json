@@ -11,10 +11,12 @@
             "id": "394651098f1e111d",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Interaction graph.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Interaction graph"
             }
           }
         ]
@@ -173,9 +175,13 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false
     }
   },
   "active": "394651098f1e111d",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "Excalidraw/Ending flowchart.md",
+    "Excalidraw/Interaction graph.md"
+  ]
 }

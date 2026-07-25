@@ -71,9 +71,11 @@ func _process(delta: float) -> void:
 func _on_impact() -> void:
 	is_flying = false
 	# Robbanási effekt/hang helye
+	SignalBus.rocket_destroyed.emit()
 	queue_free()
 	
 func self_destruct():
+	is_flying = false
 	SignalBus.rocket_destroyed.emit()
 	print("Rocket destructed")
 	queue_free()

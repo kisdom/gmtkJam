@@ -73,4 +73,4 @@ func valid_line_lenght(pos: Vector2):
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if (area.name == "RocketInnerHitbox"):
 		health = health - 1
-		area.get_parent().self_destruct()
+		area.owner.self_destruct()
