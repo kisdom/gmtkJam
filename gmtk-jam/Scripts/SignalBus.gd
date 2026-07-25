@@ -11,3 +11,9 @@ signal rocket_destroyed()
 
 #difficulty change
 signal difficulty_changed(difficulty)
+
+#Level select
+signal level1_selected
+signal level2_selected
+signal level3_selected
+signal level4_selected

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://e5mra7gyif2e"]
+
+[ext_resource type="Script" uid="uid://den5wxg2ohp8l" path="res://gmtk-jam/Scenes/levels.gd" id="1_goqel"]
+
+[node name="Control" type="Control" unique_id=867584306]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 409.0
+offset_bottom = 281.0
+script = ExtResource("1_goqel")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1665434073]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 234.0
+offset_right = 590.0
+offset_bottom = 517.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=1138419385]
+layout_mode = 2
+
+[node name="Level1" type="Button" parent="PanelContainer/HBoxContainer" unique_id=333404564]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Level 1"
+
+[node name="Level2" type="Button" parent="PanelContainer/HBoxContainer" unique_id=1988271900]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Level 2"
+
+[node name="Level3" type="Button" parent="PanelContainer/HBoxContainer" unique_id=303492375]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Level 3"
+
+[node name="Level4" type="Button" parent="PanelContainer/HBoxContainer" unique_id=2097183089]
+layout_mode = 2
+text = "Level Sauron"
+
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Level4" to="." method="_on_level_4_pressed"]

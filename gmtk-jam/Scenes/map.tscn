@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://bu5eaofwwg47h" path="res://gmtk-jam/resources/BlankMap-World-v5.png" id="1_2f7s3"]
 [ext_resource type="Script" uid="uid://dunsshtpbg7gy" path="res://gmtk-jam/Scripts/map.gd" id="1_fh8gw"]
-[ext_resource type="PackedScene" uid="uid://crux47vevfub7" path="res://gmtk-jam/Scenes/base.tscn" id="2_bgc4m"]
 [ext_resource type="PackedScene" uid="uid://c1mlaiqhillgj" path="res://gmtk-jam/Scenes/defense_line.tscn" id="2_fg2df"]
 [ext_resource type="Script" uid="uid://dnpjuijyexfya" path="res://gmtk-jam/Scripts/camera_2d.gd" id="3_bgc4m"]
 [ext_resource type="PackedScene" uid="uid://de730r0kpvpg2" path="res://gmtk-jam/Scenes/rocket.tscn" id="5_fg2df"]
 [ext_resource type="Script" uid="uid://csqupbm82qelw" path="res://gmtk-jam/Scripts/audio_stream_player.gd" id="7_2hvwk"]
 
 [node name="Map" type="Node2D" unique_id=578421521]
+visible = false
 script = ExtResource("1_fh8gw")
 rocket_scene = ExtResource("5_fg2df")
 defense_line_scene = ExtResource("2_fg2df")
@@ -26,29 +26,3 @@ script = ExtResource("3_bgc4m")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=526320805]
 volume_db = 1.0
 script = ExtResource("7_2hvwk")
-
-[node name="Bases" type="Node" parent="." unique_id=1647915594]
-
-[node name="BaseSAmerica" parent="Bases" unique_id=1589466114 groups=["bases"] instance=ExtResource("2_bgc4m")]
-offset_left = 839.0
-offset_top = 456.0
-offset_right = 1351.0
-offset_bottom = 968.0
-
-[node name="Base2" parent="Bases" unique_id=1199527124 instance=ExtResource("2_bgc4m")]
-offset_left = 90.0
-offset_top = -179.00002
-offset_right = 602.0
-offset_bottom = 333.0
-
-[node name="BaseAfrica" parent="Bases" unique_id=635459445 groups=["bases"] instance=ExtResource("2_bgc4m")]
-offset_left = 1101.0
-offset_top = 102.99997
-offset_right = 1613.0
-offset_bottom = 615.0
-
-[node name="Base" parent="Bases" unique_id=232262875 groups=["bases"] instance=ExtResource("2_bgc4m")]
-offset_left = -194.0
-offset_top = 56.0
-offset_right = 318.0
-offset_bottom = 568.0
