@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://dkx8mr5j1t07"]
 
 [ext_resource type="PackedScene" uid="uid://h1lcdbkp72lo" path="res://gmtk-jam/Scenes/hud.tscn" id="1_hlfu4"]
+[ext_resource type="PackedScene" uid="uid://52efapyohl7s" path="res://gmtk-jam/Scenes/map.tscn" id="2_6bqmm"]
 
 [node name="Game" type="Node2D" unique_id=634622433]
 
 [node name="HUD" parent="." unique_id=1402822943 instance=ExtResource("1_hlfu4")]
+visible = false
+
+[node name="Map" parent="." unique_id=578421521 instance=ExtResource("2_6bqmm")]

@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://c1mlaiqhillgj"]
 
+[ext_resource type="Script" uid="uid://d1614lsepagto" path="res://gmtk-jam/Scripts/defense_line.gd" id="1_gkgw0"]
+[ext_resource type="PackedScene" uid="uid://cjgi61g4m40yv" path="res://gmtk-jam/Scenes/circle.tscn" id="2_offor"]
+
 [node name="defenseLine" type="Node2D" unique_id=1625803671]
+script = ExtResource("1_gkgw0")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=70961244]
 points = PackedVector2Array(-13, 5, 19, -18)
 width = 5.0
+default_color = Color(0.8392157, 0.29411766, 0.21176471, 1)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=549897412]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1511416195]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=353976574]
+
+[node name="defense_circle" parent="." unique_id=1280916513 instance=ExtResource("2_offor")]

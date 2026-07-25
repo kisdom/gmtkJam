@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://crux47vevfub7" path="res://gmtk-jam/Scenes/base.tscn" id="2_bgc4m"]
 [ext_resource type="PackedScene" uid="uid://c1mlaiqhillgj" path="res://gmtk-jam/Scenes/defense_line.tscn" id="2_fg2df"]
 [ext_resource type="Script" uid="uid://dnpjuijyexfya" path="res://gmtk-jam/Scripts/camera_2d.gd" id="3_bgc4m"]
-[ext_resource type="PackedScene" uid="uid://de730r0kpvpg2" path="res://gmtk-jam/Scenes/rocket.tscn" id="5_fg2df"]
 
 [node name="Map" type="Node2D" unique_id=578421521]
 script = ExtResource("1_fh8gw")
@@ -37,3 +36,9 @@ offset_left = 741.0
 offset_top = 741.0
 offset_right = 1253.0
 offset_bottom = 1253.0
+
+[node name="Base2" parent="." unique_id=1199527124 instance=ExtResource("2_bgc4m")]
+offset_left = 719.0
+offset_top = 235.0
+offset_right = 1231.0
+offset_bottom = 747.0
