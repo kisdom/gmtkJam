@@ -5,21 +5,13 @@ extends Node2D
 #var launch_point
 var target_point
 var speed = 1.5
-#var curve = 0.5
-#var t = 0.0
-#var rocket_path: Curve2D
-#var launch_point
-var target_point
-var speed = 1.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
-	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
 func _process(_delta: float) -> void:
 	pass
 	
