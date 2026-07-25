@@ -9,7 +9,7 @@ var isPressed: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	SignalBus.base_destroyed.connect(_base_destruction)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,3 +35,10 @@ func _on_rocket_pressed() -> void:
 func _on_radar_pressed() -> void:
 	panel_container.hide()
 	SignalBus.radar_search.emit(self)
+	
+func _base_destruction() -> void:
+	print(name + " destroyed")
+	texture_normal = load("res://gmtk-jam/resources/fire.jpg")
+	scale = Vector2(6, 6)
+	$PanelContainer.visible = false
+	disabled = true
