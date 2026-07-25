@@ -4,7 +4,7 @@ extends Path2D
 @export var acceleration_profile: Curve # Gyorsulási profil (Curve Presets: Ease In, Ease Out, etc.)
 @export var base_speed: float = 200.0   # Alapsebesség (pixel / sec)
 @export var max_acceleration: float = 400.0 # Maximális plusz gyorsulás
-@export var max_height: float = 600.0   # Az ív csúcspontjának magassága pixelben
+@export var max_height: float = 150.0   # Az ív csúcspontjának magassága pixelben
 
 # --- CHILD NODE HIVATKOZÁSOK ---
 @onready var path_follow: PathFollow2D = $PathFollow2D
@@ -14,8 +14,9 @@ extends Path2D
 # --- BELSŐ VÁLTOZÓK ---
 var current_speed: float = 0.0
 var is_flying: bool = false
+var target_base
 
-func launch(start_pos: Vector2, target_pos: Vector2) -> void:
+func launch(start_pos: Vector2, target_pos: Vector2, target: TextureButton) -> void:
 	# A Path2D maga a globális (0, 0) origóhoz igazodik, hogy a pontjai világkoordináták legyenek
 	global_position = Vector2.ZERO
 	
@@ -39,12 +40,12 @@ func launch(start_pos: Vector2, target_pos: Vector2) -> void:
 	# 2. PIROS NYOMVONAL KIRAJZOLÁSA (Line2D)
 	if line_2d:
 		line_2d.points = new_curve.get_baked_points()
-		print(new_curve.get_baked_points())
 	
 	# 3. INDÍTÁS
 	current_speed = base_speed
 	path_follow.progress = 0.0
 	is_flying = true
+	target_base = target
 
 func _process(delta: float) -> void:
 	if not is_flying:
@@ -66,6 +67,7 @@ func _process(delta: float) -> void:
 	
 	# Becsapódás ellenőrzése (amikor a pálya végére ért)
 	if path_follow.progress_ratio >= 1.0:
+		target_base._base_destruction()
 		_on_impact()
 
 func _on_impact() -> void:

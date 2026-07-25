@@ -78,7 +78,7 @@ func _spawn_rocket(start_pos: Vector2, target: TextureButton) -> void:
 	add_child(rocket)
 	rocket.global_position = start_pos
 	# Ha a rakéta scriptjében van setup/launch függvény:
-	rocket.launch(start_pos, target.global_position)
+	rocket.launch(start_pos, target.global_position, target)
 
 func _draw_defense_line(event: InputEvent) -> void:
 	if defense_line_sate == DefenseLineState.START:
