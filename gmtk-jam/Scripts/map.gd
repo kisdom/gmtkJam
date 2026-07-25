@@ -29,9 +29,9 @@ func _ready() -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# Mégse akció jobb egérgombbal (vagy ESC-pel)
-	# if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-	# 	_cancel_current_action()
-	# 	return
+	if Input.is_action_just_pressed("Space"):
+		_cancel_current_action()
+		return
 
 	# --- VÉDELMI VONAL RAJZOLÁS (2 kattintásos logika) ---
 	if state == State.DEFENSE and active_defense_line != null:
