@@ -1,6 +1,6 @@
 extends Node
 
-
+@onready var map: Node2D = $"../Map"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -15,7 +15,7 @@ func _on_doom_rocket_countdown_timeout() -> void:
 	var friendly_bases  = []
 	var start
 	var target
-	for base in $"../Levels/Level1/Bases".get_children():
+	for base in map.get_child(0).get_node("Bases").get_children():
 		if (base.isEvil == true && base.visible == true):
 			enemy_bases.append(base)
 		elif (base.isEvil == false && base.visible == true)	:
