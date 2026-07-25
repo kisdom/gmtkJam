@@ -24,7 +24,6 @@ func _on_pressed() -> void:
 	else:
 		panel_container.visible = false
 
-
 func _on_defense_pressed() -> void:
 	panel_container.hide()
 	SignalBus.prepare_defense.emit(self)

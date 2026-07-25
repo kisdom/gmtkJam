@@ -25,6 +25,7 @@ func _ready() -> void:
 	SignalBus.prepare_defense.connect(_on_prepare_defense)
 	SignalBus.send_rocket.connect(_on_send_rocket)
 	SignalBus.radar_search.connect(_on_radar_search)
+	SignalBus.select_base.connect(_on_select_base)
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# Mégse akció jobb egérgombbal (vagy ESC-pel)
@@ -37,10 +38,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		_draw_defense_line(event)
 	
 # --- BASE SIGNALBUS CALLBACK-EK ---
-
 func _on_select_base(base_node) -> void:
 	if state == State.ROCKET:
-		_spawn_rocket(active_base.global_position, base_node.global_position)
+		_spawn_rocket(active_base.global_position, base_node)
 		active_base = null
 		state = State.IDLE
 
@@ -73,12 +73,12 @@ func _on_radar_search(base_node) -> void:
 	
 # --- SEGÉDFÜGGVÉNYEK ---
 
-func _spawn_rocket(start_pos: Vector2, target_pos: Vector2) -> void:
+func _spawn_rocket(start_pos: Vector2, target: TextureButton) -> void:
 	var rocket = rocket_scene.instantiate()
 	add_child(rocket)
 	rocket.global_position = start_pos
 	# Ha a rakéta scriptjében van setup/launch függvény:
-	rocket.launch(start_pos, target_pos)
+	rocket.launch(start_pos, target)
 
 func _draw_defense_line(event: InputEvent) -> void:
 	if defense_line_sate == DefenseLineState.START:

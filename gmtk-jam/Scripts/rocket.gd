@@ -15,7 +15,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 	
-func launch(start_position: Vector2, target: Node2D, north_pole_position):
+func launch(start_position: Vector2, target: TextureButton):
 	#var q0 = start_position.lerp(north_pole_position, curve)
 	#var q1 = north_pole_position.lerp(target.global_position, curve)
 	#var r = q0.lerp(q1, curve)
