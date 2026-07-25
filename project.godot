@@ -24,10 +24,6 @@ SignalBus="*uid://ct1p8bgoy1t8q"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
-[editor]
-
-script/templates_search_path="res://gmtk-jam/Scripts"
-
 [global_group]
 
 bases=""
