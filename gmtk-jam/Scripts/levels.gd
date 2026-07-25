@@ -74,7 +74,3 @@ func _on_map_button_pressed():
 
 func _on_exit_pressed():
 	get_tree().quit()	
-
-	if level_node.has_node("Sprite2D"):
-		var sprite = level_node.get_node("Sprite2D")
-		sprite.show()

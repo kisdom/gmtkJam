@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b1vntvkkwexgf"]
+
+[ext_resource type="Texture2D" uid="uid://dyf16oky7rqst" path="res://gmtk-jam/resources/menu/warning_icon.png" id="1_em3gq"]
+[ext_resource type="Texture2D" uid="uid://mb3jrehs7tc8" path="res://gmtk-jam/resources/menu/empty_warning.png" id="2_ljwl5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dkq14"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_em3gq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ljwl5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=1005559438]
+sprite_frames = SubResource("SpriteFrames_dkq14")
+autoplay = "default"
+centered = false
