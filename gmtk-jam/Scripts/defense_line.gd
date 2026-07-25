@@ -8,10 +8,14 @@ extends Node2D
 @export var DEFENSE_DISTACE: int = 300
 @export var DEFENSE_LINE_LENGHT: int = 200
 
+var blue = Color(0.203, 0.597, 0.643, 1.0)
+var yellow = Color(0.845, 0.737, 0.13, 1.0)
+
 var start_point: Vector2
 var end_point: Vector2
 var is_placing: bool = true
 var base_pos: Vector2
+var health: int = 3
 
 func setup(base_node_pos):
 	line_2d.hide()
@@ -26,6 +30,15 @@ func start(start_pos: Vector2) -> void:
 	line_2d.add_point(start_pos)
 	line_2d.add_point(start_pos)
 	line_2d.show()
+	
+func _process(delta: float) -> void:
+	if (health == 2):
+		$Line2D.default_color = yellow
+	elif (health == 1):
+		$Line2D.default_color = blue
+		
+	elif (health == 0):
+		queue_free()
 
 # Ezt a Map hívja meg folyamatosan, amíg mozog az egér
 func update_preview(current_mouse_pos: Vector2) -> void:
@@ -55,3 +68,9 @@ func is_in_distance(pos: Vector2) -> bool:
 	
 func valid_line_lenght(pos: Vector2):
 	return float(DEFENSE_LINE_LENGHT) > start_point.distance_to(pos)
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if (area.name == "RocketInnerHitbox"):
+		health = health - 1
+		area.get_parent().self_destruct()

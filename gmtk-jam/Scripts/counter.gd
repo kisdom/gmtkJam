@@ -1,7 +1,7 @@
 extends Node2D
 @export var time_left: float = 62.0
 var red = Color(1.0,0.0,0.0,1.0)
-var white = Color(1.0,1.0,1.0,1.0)
+var yellow = Color(0.845, 0.737, 0.13, 1.0)
 signal lastMinute
 signal worldEnd
 var minutes
@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 			$TimerText.set("theme_override_colors/font_color",red)
 			lastMinute.emit()
 		else:
-			$TimerText.set("theme_override_colors/font_color",white)
+			$TimerText.set("theme_override_colors/font_color",yellow)
 	else:
 		time_left = 0
 		$TimerText.text = "00:00"

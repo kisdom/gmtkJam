@@ -25,7 +25,14 @@ func launch(start_position: Vector2, target: TextureButton):
 	tween.tween_property(self, "position", target_point, speed)
 	await tween.finished
 	SignalBus.base_destroyed.emit(target)
+	SignalBus.rocket_destroyed.emit()
+	target._base_destruction()
 	print("signal emitted")
+	queue_free()
+	
+func self_destruct():
+	SignalBus.rocket_destroyed.emit()
+	print("Rocket destructed")
 	queue_free()
 	
 	
