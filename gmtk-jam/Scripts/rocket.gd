@@ -16,8 +16,10 @@ extends Path2D
 # --- BELSŐ VÁLTOZÓK ---
 var current_speed: float = 0.0
 var is_flying: bool = false
+var target_base
 
-func launch(start_pos: Vector2, target_pos: Vector2) -> void:
+func launch(start_pos: Vector2, target_pos: Vector2, target: TextureButton) -> void:
+	# A Path2D maga a globális (0, 0) origóhoz igazodik, hogy a pontjai világkoordináták legyenek
 	global_position = Vector2.ZERO
 	
 	# Ha a bázisod egy TextureButton, itt a középpontot számoljuk [cite: 337, 339]
@@ -75,6 +77,8 @@ func launch(start_pos: Vector2, target_pos: Vector2) -> void:
 	current_speed = base_speed
 	path_follow.progress = 0.0
 	is_flying = true
+	target_base = target
+
 func _process(delta: float) -> void:
 	if not is_flying:
 		return
@@ -95,6 +99,7 @@ func _process(delta: float) -> void:
 	
 	# Becsapódás ellenőrzése (amikor a pálya végére ért)
 	if path_follow.progress_ratio >= 1.0:
+		target_base._base_destruction()
 		_on_impact()
 
 func _on_impact() -> void:

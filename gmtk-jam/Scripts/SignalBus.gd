@@ -7,5 +7,4 @@ signal send_rocket(base_node)
 signal radar_search(base_node)
 
 # rocket_node signals
-signal base_destroyed(base_node)
 signal rocket_destroyed()
