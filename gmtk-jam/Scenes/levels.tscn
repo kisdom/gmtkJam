@@ -1,6 +1,19 @@
 [gd_scene format=3 uid="uid://e5mra7gyif2e"]
 
 [ext_resource type="Script" uid="uid://den5wxg2ohp8l" path="res://gmtk-jam/Scenes/levels.gd" id="1_goqel"]
+[ext_resource type="Texture2D" uid="uid://bw2i4rnlcf6ol" path="res://gmtk-jam/resources/menu/background.png" id="2_rdgl0"]
+[ext_resource type="Texture2D" uid="uid://46q5kt36bfm3" path="res://gmtk-jam/resources/menu/map_normal.png" id="3_1dbvw"]
+[ext_resource type="Texture2D" uid="uid://dmcikkheih5bt" path="res://gmtk-jam/resources/menu/map_clicked.png" id="4_g5lsg"]
+[ext_resource type="Texture2D" uid="uid://bckmbfm0k0qtl" path="res://gmtk-jam/resources/menu/map_hover.png" id="5_a5bqg"]
+[ext_resource type="Texture2D" uid="uid://b5klsdt7iapq2" path="res://gmtk-jam/resources/menu/next_normal.png" id="6_n1v8c"]
+[ext_resource type="Texture2D" uid="uid://7y6dsms4wgii" path="res://gmtk-jam/resources/menu/next_pressed.png" id="7_il82k"]
+[ext_resource type="Texture2D" uid="uid://d00kdjo1pn28d" path="res://gmtk-jam/resources/menu/next_hover.png" id="8_uxh7f"]
+[ext_resource type="Texture2D" uid="uid://da6ir6ktyh2eu" path="res://gmtk-jam/resources/menu/prev_normal.png" id="9_1gbi2"]
+[ext_resource type="Texture2D" uid="uid://bby5qj2p33un1" path="res://gmtk-jam/resources/menu/prev_pressed.png" id="10_j64c1"]
+[ext_resource type="Texture2D" uid="uid://cpumcmwrlhtqk" path="res://gmtk-jam/resources/menu/prev_hover.png" id="11_wxhaa"]
+[ext_resource type="Texture2D" uid="uid://dlyxjfowd30cy" path="res://gmtk-jam/resources/menu/exit_normal.png" id="12_uxh7f"]
+[ext_resource type="Texture2D" uid="uid://ck2rlmvw3gwyy" path="res://gmtk-jam/resources/menu/exit_hover.png" id="13_1gbi2"]
+[ext_resource type="PackedScene" uid="uid://dnndene3lxs58" path="res://gmtk-jam/Scenes/warning.tscn" id="14_1gbi2"]
 
 [node name="Control" type="Control" unique_id=867584306]
 layout_mode = 3
@@ -11,34 +24,90 @@ script = ExtResource("1_goqel")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1665434073]
 layout_mode = 0
-offset_left = 168.0
-offset_top = 234.0
-offset_right = 590.0
-offset_bottom = 517.0
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 1151.0
+offset_bottom = 650.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=1138419385]
-layout_mode = 2
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1417981720]
+position = Vector2(583, 325)
+scale = Vector2(2.4, 2.4)
+texture = ExtResource("2_rdgl0")
 
-[node name="Level1" type="Button" parent="PanelContainer/HBoxContainer" unique_id=333404564]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-text = "Level 1"
+[node name="map_button" type="TextureButton" parent="." unique_id=116983308]
+layout_mode = 0
+offset_left = 279.0
+offset_top = 130.0
+offset_right = 882.1678
+offset_bottom = 458.0
+tooltip_text = "Play"
+texture_normal = ExtResource("3_1dbvw")
+texture_pressed = ExtResource("4_g5lsg")
+texture_hover = ExtResource("5_a5bqg")
+stretch_mode = 0
 
-[node name="Level2" type="Button" parent="PanelContainer/HBoxContainer" unique_id=1988271900]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-text = "Level 2"
+[node name="current_level" type="Label" parent="." unique_id=1177911324]
+custom_minimum_size = Vector2(0.24, 0)
+layout_mode = 0
+offset_left = 270.0
+offset_top = 477.0
+offset_right = 889.0
+offset_bottom = 560.0
 
-[node name="Level3" type="Button" parent="PanelContainer/HBoxContainer" unique_id=303492375]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-text = "Level 3"
+[node name="next" type="TextureButton" parent="." unique_id=2109901254]
+layout_mode = 0
+offset_left = 881.0
+offset_top = 170.0
+offset_right = 985.0
+offset_bottom = 406.60086
+tooltip_text = "Next level"
+texture_normal = ExtResource("6_n1v8c")
+texture_pressed = ExtResource("7_il82k")
+texture_hover = ExtResource("8_uxh7f")
+stretch_mode = 0
 
-[node name="Level4" type="Button" parent="PanelContainer/HBoxContainer" unique_id=2097183089]
-layout_mode = 2
-text = "Level Sauron"
+[node name="prev" type="TextureButton" parent="." unique_id=1722583275]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 170.0
+offset_right = 279.0
+offset_bottom = 431.625
+tooltip_text = "Previous level"
+texture_normal = ExtResource("9_1gbi2")
+texture_pressed = ExtResource("10_j64c1")
+texture_hover = ExtResource("11_wxhaa")
+stretch_mode = 0
 
-[connection signal="pressed" from="PanelContainer/HBoxContainer/Level1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="PanelContainer/HBoxContainer/Level2" to="." method="_on_level_2_pressed"]
-[connection signal="pressed" from="PanelContainer/HBoxContainer/Level3" to="." method="_on_level_3_pressed"]
-[connection signal="pressed" from="PanelContainer/HBoxContainer/Level4" to="." method="_on_level_4_pressed"]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=711255765]
+position = Vector2(578, 316)
+
+[node name="exit" type="TextureButton" parent="." unique_id=1624040952]
+layout_mode = 0
+offset_left = 1026.0
+offset_top = 421.0
+offset_right = 1066.0
+offset_bottom = 506.0
+scale = Vector2(2.4, 2.4)
+texture_normal = ExtResource("12_uxh7f")
+texture_pressed = ExtResource("13_1gbi2")
+texture_hover = ExtResource("13_1gbi2")
+stretch_mode = 0
+
+[node name="warnings" type="Node2D" parent="." unique_id=1658674108]
+
+[node name="warning" parent="warnings" unique_id=1005559438 instance=ExtResource("14_1gbi2")]
+position = Vector2(363, 199)
+scale = Vector2(2.1689188, 2.1689186)
+
+[node name="warning2" parent="warnings" unique_id=1568962382 instance=ExtResource("14_1gbi2")]
+position = Vector2(667, 199)
+scale = Vector2(2.135888, 2.1358874)
+
+[node name="warning3" parent="warnings" unique_id=1824824715 instance=ExtResource("14_1gbi2")]
+position = Vector2(538, 317)
+scale = Vector2(2.2980504, 2.29805)
+
+[connection signal="pressed" from="map_button" to="." method="_on_map_button_pressed"]
+[connection signal="pressed" from="next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
