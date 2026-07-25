@@ -24,6 +24,10 @@ SignalBus="*uid://ct1p8bgoy1t8q"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+bases=""
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
