@@ -19,6 +19,7 @@ radius = 51.0
 height = 200.0
 
 [node name="Rocket" type="Path2D" unique_id=380125543]
+z_index = 8
 curve = SubResource("Curve2D_qfd48")
 script = ExtResource("1_kmqw0")
 acceleration_profile = SubResource("Curve_qgxfr")

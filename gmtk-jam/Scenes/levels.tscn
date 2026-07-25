@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://e5mra7gyif2e"]
 
-[ext_resource type="Script" uid="uid://den5wxg2ohp8l" path="res://gmtk-jam/Scenes/levels.gd" id="1_goqel"]
+[ext_resource type="Script" uid="uid://den5wxg2ohp8l" path="res://gmtk-jam/Scripts/levels.gd" id="1_goqel"]
 [ext_resource type="Texture2D" uid="uid://bw2i4rnlcf6ol" path="res://gmtk-jam/resources/menu/background.png" id="2_rdgl0"]
 [ext_resource type="Texture2D" uid="uid://46q5kt36bfm3" path="res://gmtk-jam/resources/menu/map_normal.png" id="3_1dbvw"]
 [ext_resource type="Texture2D" uid="uid://dmcikkheih5bt" path="res://gmtk-jam/resources/menu/map_clicked.png" id="4_g5lsg"]

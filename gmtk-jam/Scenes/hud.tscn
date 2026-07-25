@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://h1lcdbkp72lo"]
 
 [ext_resource type="Script" uid="uid://dkcn7jkknyqk1" path="res://gmtk-jam/Scripts/counter.gd" id="1_0e0em"]
-[ext_resource type="Script" uid="uid://bvdnijls0tnhx" path="res://gmtk-jam/Scripts/hud.gd" id="1_ei7ig"]
+[ext_resource type="Script" path="res://gmtk-jam/Scripts/hud.gd" id="1_ei7ig"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1402822943]
 script = ExtResource("1_ei7ig")
 
 [node name="Counter" type="Node2D" parent="." unique_id=655508980]
+z_index = 10
 script = ExtResource("1_0e0em")
 
 [node name="TimerText" type="Label" parent="Counter" unique_id=1916572316]
@@ -22,5 +23,4 @@ vertical_alignment = 1
 [node name="Timer" type="Timer" parent="Counter" unique_id=1173451065]
 autostart = true
 
-[connection signal="lastMinute" from="Counter" to="." method="_on_counter_last_minute"]
 [connection signal="timeout" from="Counter/Timer" to="Counter" method="_on_timer_timeout"]

@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dnpjuijyexfya" path="res://gmtk-jam/Scripts/camera_2d.gd" id="3_bgc4m"]
 [ext_resource type="PackedScene" uid="uid://de730r0kpvpg2" path="res://gmtk-jam/Scenes/rocket.tscn" id="5_fg2df"]
 [ext_resource type="Script" uid="uid://csqupbm82qelw" path="res://gmtk-jam/Scripts/audio_stream_player.gd" id="7_2hvwk"]
+[ext_resource type="Script" uid="uid://cl254h4i8ud07" path="res://gmtk-jam/Scripts/end_of_game.gd" id="7_lsj3j"]
 
 [node name="Map" type="Node2D" unique_id=578421521]
 visible = false
@@ -26,3 +27,6 @@ script = ExtResource("3_bgc4m")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=526320805]
 volume_db = 1.0
 script = ExtResource("7_2hvwk")
+
+[node name="EndOfGame" type="Node" parent="." unique_id=688957202]
+script = ExtResource("7_lsj3j")

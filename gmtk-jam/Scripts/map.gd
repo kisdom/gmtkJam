@@ -123,8 +123,7 @@ func get_base_pos(base_node) -> Vector2:
 			
 # Kikapcsolja vagy bekapcsolja a bázisok gomb-funkcióját
 func _set_bases_interactable(is_interactable: bool) -> void:
-	var level_node = get_child(3)
-	var bases_node = level_node.get_node("Bases")
+	var bases_node = get_child(0).get_node("Bases")
 	for base in bases_node.get_children():
 		if is_interactable:
 			# Visszaállítjuk az alapértelmezett állapotot (reagál a kattintásra)
