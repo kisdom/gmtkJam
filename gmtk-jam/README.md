@@ -1,1 +1,3 @@
 # gmtkJam
+
+Denes, Dimo
