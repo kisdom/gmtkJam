@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 
 func on_timer_finished() -> void:
 	print("Lejárt az idő!")
-	SignalBus.worldEnd.emit()
+	SignalBus.ending.emit("time")
 
 func _on_button_add_time(timeIncrease: int) -> void:
 	time_left = time_left + timeIncrease
