@@ -7,6 +7,7 @@
 script = ExtResource("1_ei7ig")
 
 [node name="Counter" type="Node2D" parent="." unique_id=655508980]
+z_index = 10
 script = ExtResource("1_0e0em")
 
 [node name="TimerText" type="Label" parent="Counter" unique_id=1916572316]

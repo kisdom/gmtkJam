@@ -51,3 +51,7 @@ func _load_level(level_name: String):
 	for base in bases.get_children():
 		base.show() 
 		base.disabled = false
+
+	if level_node.has_node("Sprite2D"):
+		var sprite = level_node.get_node("Sprite2D")
+		sprite.show()

@@ -3,5 +3,6 @@
 [ext_resource type="Script" uid="uid://b8cbm2wecbjgh" path="res://gmtk-jam/Scripts/circle.gd" id="1_giqed"]
 
 [node name="Circle" type="Node2D" unique_id=1280916513]
+z_index = 4
 script = ExtResource("1_giqed")
 circle_color = Color(0.34967172, 0.58970964, 0.84045345, 0.4)

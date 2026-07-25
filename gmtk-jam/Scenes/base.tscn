@@ -11,6 +11,7 @@ size = Vector2(490, 460.00006)
 
 [node name="Base" type="TextureButton" unique_id=232262875]
 visible = false
+z_index = 5
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
