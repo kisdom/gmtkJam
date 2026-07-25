@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://dnndene3lxs58"]
+[gd_scene format=3 uid="uid://b1vntvkkwexgf"]
 
-[ext_resource type="Texture2D" path="res://gmtk-jam/resources/menu/warning_icon.png" id="1_em3gq"]
-[ext_resource type="Texture2D" path="res://gmtk-jam/resources/menu/empty_warning.png" id="2_ljwl5"]
+[ext_resource type="Texture2D" uid="uid://dyf16oky7rqst" path="res://gmtk-jam/resources/menu/warning_icon.png" id="1_em3gq"]
+[ext_resource type="Texture2D" uid="uid://mb3jrehs7tc8" path="res://gmtk-jam/resources/menu/empty_warning.png" id="2_ljwl5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dkq14"]
 animations = [{
