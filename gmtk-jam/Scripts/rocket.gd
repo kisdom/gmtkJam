@@ -22,9 +22,6 @@ var target_base
 
 func setup(start_pos: Vector2):
 	real_start = start_pos
-	
-func _ready() -> void:
-	SignalBus.enemy_rocket_launch.connect(_enemy_rocket_launch)	
 
 func calculate_trajectory(target_pos: Vector2) -> void:
 	# A Path2D maga a globális (0, 0) origóhoz igazodik, hogy a pontjai világkoordináták legyenek
@@ -127,7 +124,3 @@ func self_destruct():
 func _on_rocket_outer_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Rocket"):
 		self_destruct()
-		
-func _enemy_rocket_launch(start: TextureButton, target: TextureButton):
-	print(start)
-	print(target)

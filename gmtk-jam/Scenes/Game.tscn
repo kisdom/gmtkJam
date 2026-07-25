@@ -1,25 +1,15 @@
 [gd_scene format=3 uid="uid://dkx8mr5j1t07"]
 
 [ext_resource type="PackedScene" uid="uid://e5mra7gyif2e" path="res://gmtk-jam/Scenes/levels.tscn" id="1_2kadr"]
-[ext_resource type="Script" uid="uid://c6dvprwq1ar0a" path="res://gmtk-jam/Scripts/doom_rocket_countdown.gd" id="1_cujw0"]
+[ext_resource type="Script" uid="uid://qadi0uadcp2q" path="res://gmtk-jam/Scripts/game.gd" id="1_exfb6"]
 [ext_resource type="PackedScene" uid="uid://h1lcdbkp72lo" path="res://gmtk-jam/Scenes/hud.tscn" id="1_hlfu4"]
 [ext_resource type="PackedScene" uid="uid://52efapyohl7s" path="res://gmtk-jam/Scenes/map.tscn" id="2_6bqmm"]
-[ext_resource type="Script" uid="uid://d06h6b46nr3e" path="res://gmtk-jam/Scripts/enemy_rockets.gd" id="2_droap"]
 [ext_resource type="PackedScene" uid="uid://crux47vevfub7" path="res://gmtk-jam/Scenes/base.tscn" id="3_46ulm"]
 [ext_resource type="Texture2D" uid="uid://jsjllk2dkcyu" path="res://gmtk-jam/resources/middleEarth.jpeg" id="3_o5do0"]
 [ext_resource type="Script" uid="uid://5pe1tr8bsdie" path="res://gmtk-jam/Scripts/GameVariables.gd" id="3_s3jij"]
-[ext_resource type="PackedScene" uid="uid://bua5b63yfxppv" path="res://gmtk-jam/Scenes/evil_base.tscn" id="6_exfb6"]
 
 [node name="Game" type="Node2D" unique_id=634622433]
 script = ExtResource("1_exfb6")
-
-[node name="DoomRocketCountdown" type="Timer" parent="." unique_id=1619198517]
-wait_time = 5.0
-autostart = true
-script = ExtResource("1_cujw0")
-
-[node name="EnemyRockets" type="Node" parent="." unique_id=1025871794]
-script = ExtResource("2_droap")
 
 [node name="Levels" parent="." unique_id=867584306 instance=ExtResource("1_2kadr")]
 offset_left = 254.0
@@ -55,29 +45,33 @@ offset_top = 56.0
 offset_right = 318.0
 offset_bottom = 568.0
 
-[node name="Map_Level1#EvilBase" parent="Levels/Level1/Bases" unique_id=1566964828 groups=["bases", "level1"] instance=ExtResource("6_exfb6")]
-offset_left = 847.0
-offset_top = 935.99994
-offset_right = 1359.0
-offset_bottom = 1448.0
+[node name="Level2" type="Node" parent="Levels" unique_id=2117623907]
 
-[node name="Map_Level1#EvilBase2" parent="Levels/Level1/Bases" unique_id=1256318882 groups=["bases", "level1"] instance=ExtResource("6_exfb6")]
-offset_left = 1945.0
-offset_top = 264.00003
-offset_right = 2457.0
-offset_bottom = 776.0
+[node name="Bases" type="Node" parent="Levels/Level2" unique_id=1518813813]
 
-[node name="Map_Level1#EvilBase3" parent="Levels/Level1/Bases" unique_id=166530748 groups=["bases", "level1"] instance=ExtResource("6_exfb6")]
-offset_left = 2407.0
-offset_top = 1033.0
-offset_right = 2919.0
-offset_bottom = 1545.0
+[node name="BaseSAmerica" parent="Levels/Level2/Bases" unique_id=486508482 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
+offset_left = 134.0
+offset_top = 718.0
+offset_right = 646.0
+offset_bottom = 1230.0
 
-[node name="Map_Level1#EvilBase4" parent="Levels/Level1/Bases" unique_id=274795401 groups=["bases", "level1"] instance=ExtResource("6_exfb6")]
-offset_left = 1111.0
-offset_top = 169.00003
-offset_right = 1623.0
-offset_bottom = 681.0
+[node name="Base2" parent="Levels/Level2/Bases" unique_id=670325515 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
+offset_left = 1753.0
+offset_top = 579.99994
+offset_right = 2265.0
+offset_bottom = 1092.0
+
+[node name="BaseAfrica" parent="Levels/Level2/Bases" unique_id=1632349684 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
+offset_left = 793.0
+offset_top = -218.99994
+offset_right = 1305.0
+offset_bottom = 293.00006
+
+[node name="Base" parent="Levels/Level2/Bases" unique_id=762563203 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
+offset_left = 1763.0
+offset_top = -191.99998
+offset_right = 2275.0
+offset_bottom = 320.0
 
 [node name="Level3" type="Node" parent="Levels" unique_id=1962060078]
 
@@ -147,37 +141,9 @@ offset_top = 388.0
 offset_right = 998.0
 offset_bottom = 900.0
 
-[node name="Map#Level2" type="Node" parent="." unique_id=2117623907]
-
-[node name="Levels_Level2_Bases#BaseSAmerica" parent="." unique_id=486508482 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
-offset_left = 134.0
-offset_top = 718.0
-offset_right = 646.0
-offset_bottom = 1230.0
-
-[node name="Levels_Level2_Bases#Base2" parent="." unique_id=670325515 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
-offset_left = 1753.0
-offset_top = 579.99994
-offset_right = 2265.0
-offset_bottom = 1092.0
-
-[node name="Levels_Level2_Bases#BaseAfrica" parent="." unique_id=1632349684 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
-offset_left = 793.0
-offset_top = -218.99994
-offset_right = 1305.0
-offset_bottom = 293.00006
-
-[node name="Levels_Level2_Bases#Base" parent="." unique_id=762563203 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
-offset_left = 1763.0
-offset_top = -191.99998
-offset_right = 2275.0
-offset_bottom = 320.0
-
 [node name="HUD" parent="." unique_id=1402822943 instance=ExtResource("1_hlfu4")]
 
 [node name="Map" parent="." unique_id=578421521 groups=["level1", "level2", "level3"] instance=ExtResource("2_6bqmm")]
 
 [node name="GameVariables" type="Node" parent="." unique_id=738204905]
 script = ExtResource("3_s3jij")
-
-[connection signal="timeout" from="DoomRocketCountdown" to="EnemyRockets" method="_on_doom_rocket_countdown_timeout"]

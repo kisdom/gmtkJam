@@ -96,7 +96,6 @@ func _draw_defense_line(event: InputEvent) -> void:
 			active_defense_line.finalize_line()
 			active_defense_line = null
 			state = State.IDLE
-						
 
 func _draw_rocket_line(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_click"):

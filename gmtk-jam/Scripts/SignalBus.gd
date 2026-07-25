@@ -15,6 +15,3 @@ signal difficulty_changed(difficulty)
 
 # Endigs
 signal endig(endig_name: String)
-
-#enemy rocket
-signal enemy_rocket_launch(start, target)
