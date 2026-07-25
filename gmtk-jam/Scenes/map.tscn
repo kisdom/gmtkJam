@@ -3,9 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bu5eaofwwg47h" path="res://gmtk-jam/resources/BlankMap-World-v5.png" id="1_2f7s3"]
 [ext_resource type="Script" uid="uid://dunsshtpbg7gy" path="res://gmtk-jam/Scripts/map.gd" id="1_fh8gw"]
 [ext_resource type="PackedScene" uid="uid://crux47vevfub7" path="res://gmtk-jam/Scenes/base.tscn" id="2_bgc4m"]
-[ext_resource type="PackedScene" uid="uid://c1mlaiqhillgj" path="res://gmtk-jam/Scenes/defense_line.tscn" id="2_fg2df"]
 [ext_resource type="Script" uid="uid://dnpjuijyexfya" path="res://gmtk-jam/Scripts/camera_2d.gd" id="3_bgc4m"]
 [ext_resource type="PackedScene" uid="uid://de730r0kpvpg2" path="res://gmtk-jam/Scenes/rocket.tscn" id="5_fg2df"]
+[ext_resource type="Texture2D" uid="uid://i0b3or2uvksu" path="res://gmtk-jam/resources/target.png" id="6_pko33"]
+[ext_resource type="Script" uid="uid://csqupbm82qelw" path="res://gmtk-jam/Scripts/audio_stream_player.gd" id="7_2hvwk"]
 
 [node name="Map" type="Node2D" unique_id=578421521]
 script = ExtResource("1_fh8gw")
@@ -37,3 +38,18 @@ offset_left = 741.0
 offset_top = 741.0
 offset_right = 1253.0
 offset_bottom = 1253.0
+
+[node name="Target" type="Sprite2D" parent="." unique_id=1165269383]
+position = Vector2(1733.5, 254.05127)
+scale = Vector2(1.5222226, 1.3988606)
+texture = ExtResource("6_pko33")
+
+[node name="NorthPole" type="Sprite2D" parent="." unique_id=1166918055]
+visible = false
+position = Vector2(1265, 86)
+scale = Vector2(1.2585801, 1.3117394)
+texture = ExtResource("6_pko33")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=526320805]
+volume_db = 1.0
+script = ExtResource("7_2hvwk")

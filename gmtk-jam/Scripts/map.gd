@@ -29,6 +29,7 @@ func _on_send_rocket(base_node):
 	var rocket = rocket_scene.instantiate()
 	add_child(rocket)
 	rocket.global_position = base_node.global_position
+	rocket.launch(rocket.global_position, $Target, $NorthPole.global_position)
 	#var rocket_spawn_location = rocket.get_node("Path2D/PathFollow2D")
 	#rocket_spawn_location.progress_ratio = base_node.global_position
 	#rocket.position = rocket_spawn_location
