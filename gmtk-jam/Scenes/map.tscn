@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bu5eaofwwg47h" path="res://gmtk-jam/resources/BlankMap-World-v5.png" id="1_2f7s3"]
 [ext_resource type="Script" uid="uid://dunsshtpbg7gy" path="res://gmtk-jam/Scripts/map.gd" id="1_fh8gw"]
 [ext_resource type="PackedScene" uid="uid://crux47vevfub7" path="res://gmtk-jam/Scenes/base.tscn" id="2_bgc4m"]
+[ext_resource type="PackedScene" uid="uid://c1mlaiqhillgj" path="res://gmtk-jam/Scenes/defense_line.tscn" id="2_fg2df"]
 [ext_resource type="Script" uid="uid://dnpjuijyexfya" path="res://gmtk-jam/Scripts/camera_2d.gd" id="3_bgc4m"]
 [ext_resource type="PackedScene" uid="uid://de730r0kpvpg2" path="res://gmtk-jam/Scenes/rocket.tscn" id="5_fg2df"]
 [ext_resource type="Texture2D" uid="uid://i0b3or2uvksu" path="res://gmtk-jam/resources/target.png" id="6_pko33"]
@@ -10,7 +11,7 @@
 
 [node name="Map" type="Node2D" unique_id=578421521]
 script = ExtResource("1_fh8gw")
-rocket_scene = ExtResource("5_fg2df")
+defense_line_scene = ExtResource("2_fg2df")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1903531116]
 position = Vector2(1424, 635)
