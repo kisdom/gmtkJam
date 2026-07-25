@@ -1,23 +1,24 @@
 [gd_scene format=3 uid="uid://dkx8mr5j1t07"]
 
 [ext_resource type="PackedScene" uid="uid://e5mra7gyif2e" path="res://gmtk-jam/Scenes/levels.tscn" id="1_2kadr"]
-[ext_resource type="Script" uid="uid://c6dvprwq1ar0a" path="res://gmtk-jam/Scripts/doom_rocket_countdown.gd" id="1_cujw0"]
-[ext_resource type="Script" uid="uid://qadi0uadcp2q" path="res://gmtk-jam/Scripts/game.gd" id="1_exfb6"]
+[ext_resource type="Script" uid="uid://c6dvprwq1ar0a" path="res://gmtk-jam/Scripts/doom_rocket_countdown.gd" id="1_droap"]
 [ext_resource type="PackedScene" uid="uid://h1lcdbkp72lo" path="res://gmtk-jam/Scenes/hud.tscn" id="1_hlfu4"]
 [ext_resource type="PackedScene" uid="uid://52efapyohl7s" path="res://gmtk-jam/Scenes/map.tscn" id="2_6bqmm"]
+[ext_resource type="Script" uid="uid://cjd3pppmf8qi7" path="res://gmtk-jam/Scripts/enemy_rockets.gd" id="2_droap"]
 [ext_resource type="PackedScene" uid="uid://crux47vevfub7" path="res://gmtk-jam/Scenes/base.tscn" id="3_46ulm"]
 [ext_resource type="Texture2D" uid="uid://jsjllk2dkcyu" path="res://gmtk-jam/resources/middleEarth.jpeg" id="3_o5do0"]
 [ext_resource type="Script" uid="uid://5pe1tr8bsdie" path="res://gmtk-jam/Scripts/GameVariables.gd" id="3_s3jij"]
+[ext_resource type="PackedScene" uid="uid://dw5yceokvkv4o" path="res://gmtk-jam/Scenes/evil_base.tscn" id="4_cujw0"]
 
 [node name="Game" type="Node2D" unique_id=634622433]
 
 [node name="DoomRocketCountdown" type="Timer" parent="." unique_id=1619198517]
 wait_time = 5.0
 autostart = true
-script = ExtResource("1_cujw0")
+script = ExtResource("1_droap")
 
 [node name="EnemyRockets" type="Node" parent="." unique_id=1025871794]
-script = ExtResource("1_exfb6")
+script = ExtResource("2_droap")
 
 [node name="Levels" parent="." unique_id=867584306 instance=ExtResource("1_2kadr")]
 offset_left = 254.0
@@ -52,6 +53,30 @@ offset_left = -194.0
 offset_top = 56.0
 offset_right = 318.0
 offset_bottom = 568.0
+
+[node name="EvilBase" parent="Levels/Level1/Bases" unique_id=1566964828 groups=["bases", "level1"] instance=ExtResource("4_cujw0")]
+offset_left = 825.0
+offset_top = 944.99994
+offset_right = 1337.0
+offset_bottom = 1457.0
+
+[node name="EvilBase2" parent="Levels/Level1/Bases" unique_id=588743464 groups=["bases", "level1"] instance=ExtResource("4_cujw0")]
+offset_left = 1435.9998
+offset_top = 375.00003
+offset_right = 1947.9999
+offset_bottom = 887.0001
+
+[node name="EvilBase3" parent="Levels/Level1/Bases" unique_id=119486721 groups=["bases", "level1"] instance=ExtResource("4_cujw0")]
+offset_left = 1967.0
+offset_top = 358.0
+offset_right = 2479.0
+offset_bottom = 870.0001
+
+[node name="EvilBase4" parent="Levels/Level1/Bases" unique_id=859218533 groups=["bases", "level1"] instance=ExtResource("4_cujw0")]
+offset_left = 2412.0
+offset_top = 1017.00006
+offset_right = 2924.0
+offset_bottom = 1529.0001
 
 [node name="Level2" type="Node" parent="Levels" unique_id=2117623907]
 
@@ -152,6 +177,9 @@ offset_bottom = 900.0
 [node name="HUD" parent="." unique_id=1402822943 instance=ExtResource("1_hlfu4")]
 
 [node name="Map" parent="." unique_id=578421521 groups=["level1", "level2", "level3"] instance=ExtResource("2_6bqmm")]
+metadata/_edit_lock_ = true
 
 [node name="GameVariables" type="Node" parent="." unique_id=738204905]
 script = ExtResource("3_s3jij")
+
+[connection signal="timeout" from="DoomRocketCountdown" to="EnemyRockets" method="_on_doom_rocket_countdown_timeout"]
