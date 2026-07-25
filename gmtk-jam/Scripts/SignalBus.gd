@@ -8,3 +8,6 @@ signal radar_search(base_node)
 
 # rocket_node signals
 signal rocket_destroyed()
+
+#difficulty change
+signal difficulty_changed(difficulty)

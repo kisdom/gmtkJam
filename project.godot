@@ -18,6 +18,7 @@ config/icon="res://gmtkJam/icon.svg"
 [autoload]
 
 SignalBus="*uid://ct1p8bgoy1t8q"
+GameVariables="*uid://5pe1tr8bsdie"
 
 [display]
 

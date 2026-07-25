@@ -2,7 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bp30upw7dvq03" path="res://gmtk-jam/resources/base.png" id="1_hcabe"]
 [ext_resource type="Script" uid="uid://c662npc40iday" path="res://gmtk-jam/Scripts/base.gd" id="2_a1rxy"]
-[ext_resource type="Script" uid="uid://dg30iw5ky5oii" path="res://gmtk-jam/Scripts/defense.gd" id="3_od4rh"]
+[ext_resource type="Script" uid="uid://dg30iw5ky5oii" path="res://gmtk-jam/Scripts/defense_button.gd" id="3_od4rh"]
+[ext_resource type="Script" uid="uid://kpjvomg8o8j0" path="res://gmtk-jam/Scripts/radar_button.gd" id="4_3210q"]
+[ext_resource type="Script" uid="uid://bo2wwhqqrtabn" path="res://gmtk-jam/Scripts/rocket_button.gd" id="5_nn43h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfd48"]
 size = Vector2(490, 460.00006)
@@ -42,20 +44,37 @@ theme_override_font_sizes/font_size = 56
 text = "Defense"
 script = ExtResource("3_od4rh")
 
+[node name="Timer" type="Timer" parent="PanelContainer/HBoxContainer/Defense" unique_id=465275125]
+one_shot = true
+
 [node name="Radar" type="Button" parent="PanelContainer/HBoxContainer" unique_id=511885401]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 56
 text = "Radar"
+script = ExtResource("4_3210q")
+
+[node name="Timer" type="Timer" parent="PanelContainer/HBoxContainer/Radar" unique_id=1352320756]
+one_shot = true
 
 [node name="Rocket" type="Button" parent="PanelContainer/HBoxContainer" unique_id=751642340]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 56
 text = "Rocket"
+script = ExtResource("5_nn43h")
+
+[node name="Timer" type="Timer" parent="PanelContainer/HBoxContainer/Rocket" unique_id=1682107239]
+one_shot = true
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Defense" to="." method="_on_defense_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Defense" to="PanelContainer/HBoxContainer/Defense" method="_button_pressed"]
+[connection signal="timeout" from="PanelContainer/HBoxContainer/Defense/Timer" to="PanelContainer/HBoxContainer/Defense" method="_on_timer_timeout"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Radar" to="." method="_on_radar_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Radar" to="PanelContainer/HBoxContainer/Radar" method="_button_pressed"]
+[connection signal="timeout" from="PanelContainer/HBoxContainer/Radar/Timer" to="PanelContainer/HBoxContainer/Radar" method="_on_timer_timeout"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Rocket" to="." method="_on_rocket_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Rocket" to="PanelContainer/HBoxContainer/Rocket" method="_button_pressed"]
+[connection signal="timeout" from="PanelContainer/HBoxContainer/Rocket/Timer" to="PanelContainer/HBoxContainer/Rocket" method="_on_timer_timeout"]
