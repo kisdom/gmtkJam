@@ -54,55 +54,29 @@ offset_top = 56.0
 offset_right = 318.0
 offset_bottom = 568.0
 
-[node name="EvilBase" parent="Map/Level1" unique_id=1566964828 groups=["bases", "level1"] instance=ExtResource("6_exfb6")]
+[node name="Map_Level1#EvilBase" parent="Levels/Level1/Bases" unique_id=1566964828 groups=["bases", "level1"] instance=ExtResource("6_exfb6")]
 offset_left = 847.0
 offset_top = 935.99994
 offset_right = 1359.0
 offset_bottom = 1448.0
 
-[node name="EvilBase2" parent="Map/Level1" unique_id=1215096331 groups=["bases", "level1"] instance=ExtResource("6_exfb6")]
+[node name="Map_Level1#EvilBase2" parent="Levels/Level1/Bases" unique_id=1256318882 groups=["bases", "level1"] instance=ExtResource("6_exfb6")]
 offset_left = 1945.0
 offset_top = 264.00003
 offset_right = 2457.0
 offset_bottom = 776.0
 
-[node name="EvilBase3" parent="Map/Level1" unique_id=749544432 groups=["bases", "level1"] instance=ExtResource("6_exfb6")]
+[node name="Map_Level1#EvilBase3" parent="Levels/Level1/Bases" unique_id=166530748 groups=["bases", "level1"] instance=ExtResource("6_exfb6")]
 offset_left = 2407.0
 offset_top = 1033.0
 offset_right = 2919.0
 offset_bottom = 1545.0
 
-[node name="EvilBase4" parent="Map/Level1" unique_id=165091134 groups=["bases", "level1"] instance=ExtResource("6_exfb6")]
+[node name="Map_Level1#EvilBase4" parent="Levels/Level1/Bases" unique_id=274795401 groups=["bases", "level1"] instance=ExtResource("6_exfb6")]
 offset_left = 1111.0
 offset_top = 169.00003
 offset_right = 1623.0
 offset_bottom = 681.0
-
-[node name="Level2" type="Node" parent="Map" unique_id=2117623907]
-
-[node name="BaseSAmerica" parent="Levels/Level2/Bases" unique_id=486508482 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
-offset_left = 134.0
-offset_top = 718.0
-offset_right = 646.0
-offset_bottom = 1230.0
-
-[node name="Base2" parent="Levels/Level2/Bases" unique_id=670325515 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
-offset_left = 1753.0
-offset_top = 579.99994
-offset_right = 2265.0
-offset_bottom = 1092.0
-
-[node name="BaseAfrica" parent="Levels/Level2/Bases" unique_id=1632349684 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
-offset_left = 793.0
-offset_top = -218.99994
-offset_right = 1305.0
-offset_bottom = 293.00006
-
-[node name="Base" parent="Levels/Level2/Bases" unique_id=762563203 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
-offset_left = 1763.0
-offset_top = -191.99998
-offset_right = 2275.0
-offset_bottom = 320.0
 
 [node name="Level3" type="Node" parent="Levels" unique_id=1962060078]
 
@@ -171,6 +145,32 @@ offset_left = 486.0
 offset_top = 388.0
 offset_right = 998.0
 offset_bottom = 900.0
+
+[node name="Map#Level2" type="Node" parent="." unique_id=2117623907]
+
+[node name="Levels_Level2_Bases#BaseSAmerica" parent="." unique_id=486508482 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
+offset_left = 134.0
+offset_top = 718.0
+offset_right = 646.0
+offset_bottom = 1230.0
+
+[node name="Levels_Level2_Bases#Base2" parent="." unique_id=670325515 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
+offset_left = 1753.0
+offset_top = 579.99994
+offset_right = 2265.0
+offset_bottom = 1092.0
+
+[node name="Levels_Level2_Bases#BaseAfrica" parent="." unique_id=1632349684 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
+offset_left = 793.0
+offset_top = -218.99994
+offset_right = 1305.0
+offset_bottom = 293.00006
+
+[node name="Levels_Level2_Bases#Base" parent="." unique_id=762563203 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
+offset_left = 1763.0
+offset_top = -191.99998
+offset_right = 2275.0
+offset_bottom = 320.0
 
 [node name="HUD" parent="." unique_id=1402822943 instance=ExtResource("1_hlfu4")]
 visible = false

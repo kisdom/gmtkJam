@@ -15,7 +15,7 @@ func _on_doom_rocket_countdown_timeout() -> void:
 	var friendly_bases  = []
 	var start
 	var target
-	for base in $"../Map/Level1".get_children():
+	for base in $"../Levels/Level1/Bases".get_children():
 		if (base.isEvil == true && base.visible == true):
 			enemy_bases.append(base)
 		elif (base.isEvil == false && base.visible == true)	:
