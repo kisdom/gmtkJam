@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c1mlaiqhillgj"]
+
+[node name="defenseLine" type="Node2D" unique_id=1625803671]
+
+[node name="Line2D" type="Line2D" parent="." unique_id=70961244]
+points = PackedVector2Array(-13, 5, 19, -18)
+width = 5.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=549897412]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1511416195]
