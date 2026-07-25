@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://dkx8mr5j1t07"]
 
 [ext_resource type="PackedScene" uid="uid://e5mra7gyif2e" path="res://gmtk-jam/Scenes/levels.tscn" id="1_2kadr"]
-[ext_resource type="Script" path="res://gmtk-jam/Scripts/doom_rocket_countdown.gd" id="1_droap"]
-[ext_resource type="Script" uid="uid://qadi0uadcp2q" path="res://gmtk-jam/Scripts/game.gd" id="1_exfb6"]
+[ext_resource type="Script" uid="uid://c6dvprwq1ar0a" path="res://gmtk-jam/Scripts/doom_rocket_countdown.gd" id="1_droap"]
 [ext_resource type="PackedScene" uid="uid://h1lcdbkp72lo" path="res://gmtk-jam/Scenes/hud.tscn" id="1_hlfu4"]
 [ext_resource type="PackedScene" uid="uid://52efapyohl7s" path="res://gmtk-jam/Scenes/map.tscn" id="2_6bqmm"]
 [ext_resource type="Script" uid="uid://cjd3pppmf8qi7" path="res://gmtk-jam/Scripts/enemy_rockets.gd" id="2_droap"]
@@ -15,7 +14,6 @@
 
 [node name="DoomRocketCountdown" type="Timer" parent="." unique_id=1619198517]
 wait_time = 5.0
-autostart = true
 script = ExtResource("1_droap")
 
 [node name="EnemyRockets" type="Node" parent="." unique_id=1025871794]
