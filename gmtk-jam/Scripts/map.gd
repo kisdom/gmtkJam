@@ -26,10 +26,6 @@ func _ready() -> void:
 	SignalBus.prepare_defense.connect(_on_prepare_defense)
 	SignalBus.send_rocket.connect(_on_send_rocket)
 	SignalBus.radar_search.connect(_on_radar_search)
-	SignalBus.level1_selected.connect(_load_level_1)
-	SignalBus.level2_selected.connect(_load_level_2)
-	SignalBus.level3_selected.connect(_load_level_3)
-	SignalBus.level4_selected.connect(_load_level_4)
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# Mégse akció jobb egérgombbal (vagy ESC-pel)
@@ -124,35 +120,12 @@ func _cancel_current_action() -> void:
 
 func get_base_pos(base_node) -> Vector2:
 	return base_node.global_position + ((base_node.size / 2.0) * base_node.scale)
-	
-func _load_level_1():
-	for node in get_tree().get_nodes_in_group("level1"):
-		node.visible = true
-		if (node is TextureButton):
-			node.disabled = false
-	
-func _load_level_2():
-	for node in get_tree().get_nodes_in_group("level2"):
-		node.visible = true
-		if (node is TextureButton):
-			node.disabled = false
-	
-func _load_level_3():
-	for node in get_tree().get_nodes_in_group("level3"):
-		node.visible = true	
-		if (node is TextureButton):
-			node.disabled = false
 			
-func _load_level_4():
-	for node in get_tree().get_nodes_in_group("level4"):
-		node.visible = true	
-		if (node is TextureButton):
-			node.disabled = false
-			
-
 # Kikapcsolja vagy bekapcsolja a bázisok gomb-funkcióját
 func _set_bases_interactable(is_interactable: bool) -> void:
-	for base in $Level1.get_children():
+	var level_node = get_child(3)
+	var bases_node = level_node.get_node("Bases")
+	for base in bases_node.get_children():
 		if is_interactable:
 			# Visszaállítjuk az alapértelmezett állapotot (reagál a kattintásra)
 			base.mouse_filter = Control.MOUSE_FILTER_STOP
