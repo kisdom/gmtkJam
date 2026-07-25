@@ -31,20 +31,23 @@ func start(start_pos: Vector2) -> void:
 	line_2d.add_point(start_pos)
 	line_2d.show()
 	
-func _process(delta: float) -> void:
-	if (health == 2):
-		$Line2D.default_color = yellow
-	elif (health == 1):
-		$Line2D.default_color = blue
-		
-	elif (health == 0):
-		queue_free()
-
 # Ezt a Map hívja meg folyamatosan, amíg mozog az egér
 func update_preview(current_mouse_pos: Vector2) -> void:
-	if is_placing:
-		end_point = current_mouse_pos
-		line_2d.set_point_position(1, end_point)
+	if not is_placing:
+		return
+		
+	# 1. BEÉPÍTETT KORLÁTOZÁS A BÁZIS KÖRÉRE (DEFENSE_DISTACE)
+	# Kiszámoljuk az eltolást a bázis közepétől, és a limit_length levágja, ha túllóg
+	var offset_from_base = current_mouse_pos - base_pos
+	var clamped_by_radius = base_pos + offset_from_base.limit_length(float(DEFENSE_DISTACE))
+	
+	# 2. BEÉPÍTETT KORLÁTOZÁS A VONAL HOSSZÁRA (DEFENSE_LINE_LENGHT)
+	# Kiszámoljuk az eltolást a vonal kezdőpontjától, és ezt is levágjuk a max hosszra
+	var offset_from_start = clamped_by_radius - start_point
+	end_point = start_point + offset_from_start.limit_length(float(DEFENSE_LINE_LENGHT))
+	
+	# Frissítjük a kirajzolt vonalat a levágott (clamped) koordinátával
+	line_2d.set_point_position(1, end_point)
 
 # Ezt hívjuk meg a második kattintáskor (amikor véglegesítjük a vonalat)
 func finalize_line() -> void:
@@ -69,8 +72,16 @@ func is_in_distance(pos: Vector2) -> bool:
 func valid_line_lenght(pos: Vector2):
 	return float(DEFENSE_LINE_LENGHT) > start_point.distance_to(pos)
 
-
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if (area.name == "RocketInnerHitbox"):
 		health = health - 1
+		take_damage()
 		area.owner.self_destruct()
+
+func take_damage():
+	if (health == 2):
+		$Line2D.default_color = yellow
+	elif (health == 1):
+		$Line2D.default_color = blue
+	elif (health == 0):
+		queue_free()

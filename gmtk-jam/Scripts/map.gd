@@ -87,9 +87,7 @@ func _draw_defense_line(event: InputEvent) -> void:
 			defense_line_sate = DefenseLineState.FINISH
 	else:
 		# Egérmozgás közben követi a vonal végét
-		if event is InputEventMouseMotion \
-		and active_defense_line.is_in_distance(get_global_mouse_position()) \
-		and active_defense_line.valid_line_lenght(get_global_mouse_position()):
+		if event is InputEventMouseMotion:
 			active_defense_line.update_preview(get_global_mouse_position())
 		
 		# Második kattintás: vonal letétele és lezárása
