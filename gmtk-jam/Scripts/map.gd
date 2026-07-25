@@ -78,7 +78,6 @@ func _spawn_rocket(start_pos: Vector2) -> void:
 	add_child(rocket)
 	rocket.global_position = start_pos
 	rocket.setup(start_pos)
-	# Ha a rakéta scriptjében van setup/launch függvény:
 
 func _draw_defense_line(event: InputEvent) -> void:
 	if defense_line_sate == DefenseLineState.START:
@@ -121,7 +120,10 @@ func _cancel_current_action() -> void:
 
 func get_base_pos(base_node) -> Vector2:
 	return base_node.global_position + ((base_node.size / 2.0) * base_node.scale)
-			
+
+func get_upsidedown_base_pos(base_node) -> Vector2:
+	return base_node.global_position - ((base_node.size / 2.0) * base_node.scale)
+
 # Kikapcsolja vagy bekapcsolja a bázisok gomb-funkcióját
 func _set_bases_interactable(is_interactable: bool) -> void:
 	var bases_node = get_child(0).get_node("Bases")
@@ -149,7 +151,15 @@ func _get_hovered_base_area() -> TextureButton:
 			return result.collider.owner
 	return null
 	
+# --- EMENY FÜGGVÉNYEK ---
+
 func _enemy_rocket_launch(start: TextureButton, target: TextureButton):
-	_spawn_rocket(start.position)
+	var enemy_rocket = rocket_scene.instantiate()
+	add_child(enemy_rocket)
+	var start_center = get_upsidedown_base_pos(start)
+	
+	enemy_rocket.global_position = start_center
+	enemy_rocket.setup(start_center)
 	print("entering launch mode")
-	rocket.launch(target)
+	enemy_rocket.calculate_trajectory(get_base_pos(target))
+	enemy_rocket.launch(target)

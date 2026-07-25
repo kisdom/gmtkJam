@@ -7,11 +7,11 @@
 size = Vector2(490, 515)
 
 [node name="EvilBase" type="TextureButton" unique_id=1566964828]
-visible = false
-offset_left = 320.0
-offset_top = 68.0
-offset_right = 832.0
-offset_bottom = 580.0
+z_index = 5
+offset_left = 51.999996
+offset_top = 58.000004
+offset_right = 564.0
+offset_bottom = 570.0
 rotation = 3.1415927
 scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("1_8e5yb")
@@ -21,6 +21,6 @@ script = ExtResource("2_g13en")
 position = Vector2(10.000001, 19.999998)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2126751113]
-position = Vector2(250, 269.99997)
+position = Vector2(245, 244.99997)
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_4hx1s")

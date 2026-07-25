@@ -16,9 +16,9 @@ func _on_doom_rocket_countdown_timeout() -> void:
 	var start
 	var target
 	for base in map.get_child(0).get_node("Bases").get_children():
-		if (base.isEvil == true && base.visible == true):
+		if (base.isEvil == true && base.disabled == false):
 			enemy_bases.append(base)
-		elif (base.isEvil == false && base.visible == true)	:
+		elif (base.isEvil == false && base.disabled == false)	:
 			friendly_bases.append(base)
 	var number_of_bases = enemy_bases.size()
 	var baseInstance = randi() % number_of_bases

@@ -24,161 +24,169 @@ offset_left = 254.0
 offset_top = -2.0
 offset_right = 663.0
 offset_bottom = 279.0
-
-[node name="Level1" type="Node" parent="Levels" unique_id=404601722]
-
-[node name="Bases" type="Node" parent="Levels/Level1" unique_id=855754252]
-
-[node name="MainMenu_Level1_Bases#BaseSAmerica" parent="Levels/Level1/Bases" unique_id=1338378959 groups=["bases", "level1"] instance=ExtResource("3_46ulm")]
-offset_left = 263.0
-offset_top = 132.0
-offset_right = 775.0
-offset_bottom = 644.0
-
-[node name="MainMenu_Level1_Bases#Base2" parent="Levels/Level1/Bases" unique_id=336875106 groups=["bases", "level1"] instance=ExtResource("3_46ulm")]
-offset_left = -486.0
-offset_top = -503.0
-offset_right = 26.0
-offset_bottom = 9.0
-
-[node name="MainMenu_Level1_Bases#BaseAfrica" parent="Levels/Level1/Bases" unique_id=268201985 groups=["bases", "level1"] instance=ExtResource("3_46ulm")]
-offset_left = 525.0
-offset_top = -221.00003
-offset_right = 1037.0
-offset_bottom = 291.0
-
-[node name="MainMenu_Level1_Bases#Base" parent="Levels/Level1/Bases" unique_id=821660086 groups=["bases", "level1"] instance=ExtResource("3_46ulm")]
-offset_left = -770.0
-offset_top = -268.0
-offset_right = -258.0
-offset_bottom = 244.0
-
-[node name="Levels_Level1_Bases#EvilBase" parent="Levels/Level1/Bases" unique_id=1566964828 groups=["bases", "level1"] instance=ExtResource("4_cujw0")]
-offset_left = 825.0
-offset_top = 944.99994
-offset_right = 1337.0
-offset_bottom = 1457.0
-
-[node name="Levels_Level1_Bases#EvilBase2" parent="Levels/Level1/Bases" unique_id=588743464 groups=["bases", "level1"] instance=ExtResource("4_cujw0")]
-offset_left = 1435.9998
-offset_top = 375.00003
-offset_right = 1947.9999
-offset_bottom = 887.0001
-
-[node name="Levels_Level1_Bases#EvilBase3" parent="Levels/Level1/Bases" unique_id=119486721 groups=["bases", "level1"] instance=ExtResource("4_cujw0")]
-offset_left = 1967.0
-offset_top = 358.0
-offset_right = 2479.0
-offset_bottom = 870.0001
-
-[node name="Levels_Level1_Bases#EvilBase4" parent="Levels/Level1/Bases" unique_id=859218533 groups=["bases", "level1"] instance=ExtResource("4_cujw0")]
-offset_left = 2412.0
-offset_top = 1017.00006
-offset_right = 2924.0
-offset_bottom = 1529.0001
-
-[node name="Level2" type="Node" parent="Levels" unique_id=2117623907]
-
-[node name="Bases" type="Node" parent="Levels/Level2" unique_id=1775353003]
-
-[node name="MainMenu_Level2_Bases#BaseSAmerica" parent="Levels/Level2/Bases" unique_id=486508482 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
-offset_left = -442.0
-offset_top = 394.0
-offset_right = 70.0
-offset_bottom = 906.0
-
-[node name="MainMenu_Level2_Bases#Base2" parent="Levels/Level2/Bases" unique_id=670325515 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
-offset_left = 1177.0
-offset_top = 255.99994
-offset_right = 1689.0
-offset_bottom = 768.0
-
-[node name="MainMenu_Level2_Bases#BaseAfrica" parent="Levels/Level2/Bases" unique_id=1632349684 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
-offset_left = 217.0
-offset_top = -542.99994
-offset_right = 729.0
-offset_bottom = -30.999939
-
-[node name="MainMenu_Level2_Bases#Base" parent="Levels/Level2/Bases" unique_id=762563203 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
-offset_left = 1187.0
-offset_top = -516.0
-offset_right = 1699.0
-offset_bottom = -4.0
-
-[node name="Level3" type="Node" parent="Levels" unique_id=2097843777]
-
-[node name="Bases" type="Node" parent="Levels/Level3" unique_id=970686908]
-
-[node name="MainMenu_Level3_Bases#BaseSAmerica" parent="Levels/Level3/Bases" unique_id=2029332209 groups=["bases", "level3"] instance=ExtResource("3_46ulm")]
-offset_left = 462.0
-offset_top = 211.0
-offset_right = 974.0
-offset_bottom = 723.0
-
-[node name="MainMenu_Level3_Bases#Base2" parent="Levels/Level3/Bases" unique_id=2028348360 groups=["bases", "level3"] instance=ExtResource("3_46ulm")]
-offset_left = -714.0
-offset_top = -107.0
-offset_right = -202.0
-offset_bottom = 405.0
-
-[node name="MainMenu_Level3_Bases#BaseAfrica" parent="Levels/Level3/Bases" unique_id=264093531 groups=["bases", "level3"] instance=ExtResource("3_46ulm")]
-offset_left = -451.0
-offset_top = 396.0
-offset_right = 61.0
-offset_bottom = 908.0
-
-[node name="MainMenu_Level3_Bases#Base" parent="Levels/Level3/Bases" unique_id=186298280 groups=["bases", "level3"] instance=ExtResource("3_46ulm")]
-offset_left = 782.0
-offset_top = -405.0
-offset_right = 1294.0
-offset_bottom = 107.0
-
-[node name="MainMenu_Level3_Bases#BaseSAmerica2" parent="Levels/Level3/Bases" unique_id=308250876 groups=["bases", "level3"] instance=ExtResource("3_46ulm")]
-offset_left = 123.0
-offset_top = -401.99994
-offset_right = 635.0
-offset_bottom = 110.00006
-
-[node name="MiddleEarthMap" type="Node" parent="Levels" unique_id=458205948 groups=["level4"]]
-
-[node name="Bases" type="Node" parent="Levels/MiddleEarthMap" unique_id=814780516]
-
-[node name="MainMenu_MiddleEarthMap_Bases#BaseSAmerica" parent="Levels/MiddleEarthMap/Bases" unique_id=232262875 groups=["bases", "level4"] instance=ExtResource("3_46ulm")]
-offset_left = 419.0
-offset_top = 67.0
-offset_right = 931.0
-offset_bottom = 579.0
-
-[node name="MainMenu_MiddleEarthMap_Bases#Base2" parent="Levels/MiddleEarthMap/Bases" unique_id=830682287 groups=["bases", "level4"] instance=ExtResource("3_46ulm")]
-offset_left = -649.0
-offset_top = -444.0
-offset_right = -137.0
-offset_bottom = 68.0
-
-[node name="MainMenu_MiddleEarthMap_Bases#BaseAfrica" parent="Levels/MiddleEarthMap/Bases" unique_id=713259641 groups=["bases", "level4"] instance=ExtResource("3_46ulm")]
-offset_left = 71.0
-offset_top = -438.99994
-offset_right = 583.0
-offset_bottom = 73.00006
-
-[node name="MainMenu_MiddleEarthMap_Bases#Base" parent="Levels/MiddleEarthMap/Bases" unique_id=16125290 groups=["bases", "level4"] instance=ExtResource("3_46ulm")]
-offset_left = -90.0
-offset_top = 64.0
-offset_right = 422.0
-offset_bottom = 576.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Levels/MiddleEarthMap" unique_id=1559259089]
-visible = false
-z_index = 3
-position = Vector2(1024.2501, 592.75)
-scale = Vector2(3.4128983, 3.4880598)
-texture = ExtResource("3_o5do0")
+metadata/_edit_lock_ = true
 
 [node name="HUD" parent="." unique_id=1402822943 instance=ExtResource("1_hlfu4")]
 script = null
 
 [node name="Map" parent="." unique_id=578421521 groups=["level1", "level2", "level3"] instance=ExtResource("2_6bqmm")]
 metadata/_edit_lock_ = true
+
+[node name="Level1" type="Node2D" parent="Map" unique_id=774688046]
+position = Vector2(254, -2)
+
+[node name="Bases" type="Node2D" parent="Map/Level1" unique_id=840310354]
+
+[node name="MainMenu_Level1_Bases#BaseSAmerica" parent="Map/Level1/Bases" unique_id=1338378959 groups=["bases", "level1"] instance=ExtResource("3_46ulm")]
+offset_left = 277.99994
+offset_top = 279.99988
+offset_right = 789.99994
+offset_bottom = 791.9999
+
+[node name="MainMenu_Level1_Bases#Base2" parent="Map/Level1/Bases" unique_id=336875106 groups=["bases", "level1"] instance=ExtResource("3_46ulm")]
+offset_left = 442.0
+offset_top = 771.0
+offset_right = 954.0
+offset_bottom = 1283.0
+
+[node name="MainMenu_Level1_Bases#BaseAfrica" parent="Map/Level1/Bases" unique_id=268201985 groups=["bases", "level1"] instance=ExtResource("3_46ulm")]
+offset_left = 1158.0
+offset_top = 576.0
+offset_right = 1670.0
+offset_bottom = 1088.0
+
+[node name="MainMenu_Level1_Bases#Base" parent="Map/Level1/Bases" unique_id=821660086 groups=["bases", "level1"] instance=ExtResource("3_46ulm")]
+offset_left = 1658.9998
+offset_top = 312.99994
+offset_right = 2170.9998
+offset_bottom = 824.99994
+
+[node name="Levels_Level1_Bases#EvilBase" parent="Map/Level1/Bases" unique_id=1566964828 groups=["bases", "level1"] instance=ExtResource("4_cujw0")]
+offset_left = 825.0
+offset_top = 944.99994
+offset_right = 1337.0
+offset_bottom = 1457.0
+
+[node name="Levels_Level1_Bases#EvilBase2" parent="Map/Level1/Bases" unique_id=588743464 groups=["bases", "level1"] instance=ExtResource("4_cujw0")]
+offset_left = 1435.9998
+offset_top = 375.00003
+offset_right = 1947.9999
+offset_bottom = 887.0001
+
+[node name="Levels_Level1_Bases#EvilBase3" parent="Map/Level1/Bases" unique_id=119486721 groups=["bases", "level1"] instance=ExtResource("4_cujw0")]
+offset_left = 1967.0
+offset_top = 358.0
+offset_right = 2479.0
+offset_bottom = 870.0001
+
+[node name="Levels_Level1_Bases#EvilBase4" parent="Map/Level1/Bases" unique_id=859218533 groups=["bases", "level1"] instance=ExtResource("4_cujw0")]
+offset_left = 2412.0
+offset_top = 1017.00006
+offset_right = 2924.0
+offset_bottom = 1529.0001
+
+[node name="Level2" type="Node2D" parent="Map" unique_id=682194133]
+visible = false
+position = Vector2(254, -2)
+
+[node name="Bases" type="Node2D" parent="Map/Level2" unique_id=1577390198]
+
+[node name="MainMenu_Level2_Bases#BaseSAmerica" parent="Map/Level2/Bases" unique_id=486508482 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
+offset_left = -442.0
+offset_top = 394.0
+offset_right = 70.0
+offset_bottom = 906.0
+
+[node name="MainMenu_Level2_Bases#Base2" parent="Map/Level2/Bases" unique_id=670325515 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
+offset_left = 1177.0
+offset_top = 255.99994
+offset_right = 1689.0
+offset_bottom = 768.0
+
+[node name="MainMenu_Level2_Bases#BaseAfrica" parent="Map/Level2/Bases" unique_id=1632349684 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
+offset_left = 217.0
+offset_top = -542.99994
+offset_right = 729.0
+offset_bottom = -30.999939
+
+[node name="MainMenu_Level2_Bases#Base" parent="Map/Level2/Bases" unique_id=762563203 groups=["bases", "level2"] instance=ExtResource("3_46ulm")]
+offset_left = 1187.0
+offset_top = -516.0
+offset_right = 1699.0
+offset_bottom = -4.0
+
+[node name="Level3" type="Node2D" parent="Map" unique_id=743718994]
+visible = false
+position = Vector2(254, -2)
+
+[node name="Bases" type="Node2D" parent="Map/Level3" unique_id=602874698]
+
+[node name="MainMenu_Level3_Bases#BaseSAmerica" parent="Map/Level3/Bases" unique_id=2029332209 groups=["bases", "level3"] instance=ExtResource("3_46ulm")]
+offset_left = 462.0
+offset_top = 211.0
+offset_right = 974.0
+offset_bottom = 723.0
+
+[node name="MainMenu_Level3_Bases#Base2" parent="Map/Level3/Bases" unique_id=2028348360 groups=["bases", "level3"] instance=ExtResource("3_46ulm")]
+offset_left = -714.0
+offset_top = -107.0
+offset_right = -202.0
+offset_bottom = 405.0
+
+[node name="MainMenu_Level3_Bases#BaseAfrica" parent="Map/Level3/Bases" unique_id=264093531 groups=["bases", "level3"] instance=ExtResource("3_46ulm")]
+offset_left = -451.0
+offset_top = 396.0
+offset_right = 61.0
+offset_bottom = 908.0
+
+[node name="MainMenu_Level3_Bases#Base" parent="Map/Level3/Bases" unique_id=186298280 groups=["bases", "level3"] instance=ExtResource("3_46ulm")]
+offset_left = 782.0
+offset_top = -405.0
+offset_right = 1294.0
+offset_bottom = 107.0
+
+[node name="MainMenu_Level3_Bases#BaseSAmerica2" parent="Map/Level3/Bases" unique_id=308250876 groups=["bases", "level3"] instance=ExtResource("3_46ulm")]
+offset_left = 123.0
+offset_top = -401.99994
+offset_right = 635.0
+offset_bottom = 110.00006
+
+[node name="MiddleEarthMap" type="Node2D" parent="Map" unique_id=636190160 groups=["level4"]]
+visible = false
+position = Vector2(254, -2)
+
+[node name="Bases" type="Node2D" parent="Map/MiddleEarthMap" unique_id=1278242886]
+
+[node name="MainMenu_MiddleEarthMap_Bases#BaseSAmerica" parent="Map/MiddleEarthMap/Bases" unique_id=232262875 groups=["bases", "level4"] instance=ExtResource("3_46ulm")]
+offset_left = 419.0
+offset_top = 67.0
+offset_right = 931.0
+offset_bottom = 579.0
+
+[node name="MainMenu_MiddleEarthMap_Bases#Base2" parent="Map/MiddleEarthMap/Bases" unique_id=830682287 groups=["bases", "level4"] instance=ExtResource("3_46ulm")]
+offset_left = -649.0
+offset_top = -444.0
+offset_right = -137.0
+offset_bottom = 68.0
+
+[node name="MainMenu_MiddleEarthMap_Bases#BaseAfrica" parent="Map/MiddleEarthMap/Bases" unique_id=713259641 groups=["bases", "level4"] instance=ExtResource("3_46ulm")]
+offset_left = 71.0
+offset_top = -438.99994
+offset_right = 583.0
+offset_bottom = 73.00006
+
+[node name="MainMenu_MiddleEarthMap_Bases#Base" parent="Map/MiddleEarthMap/Bases" unique_id=16125290 groups=["bases", "level4"] instance=ExtResource("3_46ulm")]
+offset_left = -90.0
+offset_top = 64.0
+offset_right = 422.0
+offset_bottom = 576.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MiddleEarthMap" unique_id=1559259089]
+visible = false
+z_index = 3
+position = Vector2(1024.2501, 592.75)
+scale = Vector2(3.4128983, 3.4880598)
+texture = ExtResource("3_o5do0")
 
 [node name="GameVariables" type="Node" parent="." unique_id=738204905]
 script = ExtResource("3_s3jij")
