@@ -18,3 +18,8 @@ signal endig(endig_name: String)
 
 #enemy rocket
 signal enemy_rocket_launch(start, target)
+
+# Clock
+signal lastMinute
+signal worldEnd
+
