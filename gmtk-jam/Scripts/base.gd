@@ -39,6 +39,7 @@ func _on_radar_pressed() -> void:
 func _base_destruction() -> void:
 	print(name + " destroyed")
 	texture_normal = load("res://gmtk-jam/resources/fire.jpg")
-	scale = Vector2(8, 8)
+	scale = Vector2(1,1)
+	print(size)
 	$PanelContainer.visible = false
 	disabled = true

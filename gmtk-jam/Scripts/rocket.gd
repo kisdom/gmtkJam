@@ -115,3 +115,8 @@ func self_destruct():
 	queue_free()
 	
 	
+
+
+func _on_rocket_outer_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Rocket"):
+		self_destruct()

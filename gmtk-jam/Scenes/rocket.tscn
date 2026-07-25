@@ -14,6 +14,10 @@ point_count = 2
 radius = 21.0
 height = 98.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_28ct4"]
+radius = 51.0
+height = 200.0
+
 [node name="Rocket" type="Path2D" unique_id=380125543]
 curve = SubResource("Curve2D_qfd48")
 script = ExtResource("1_kmqw0")
@@ -34,9 +38,18 @@ position = Vector2(1.375, 22)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_qfd48")
 
+[node name="RocketOuterHitbox" type="Area2D" parent="PathFollow2D" unique_id=252393631 groups=["Rocket"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/RocketOuterHitbox" unique_id=1042638857]
+position = Vector2(-16, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_28ct4")
+
 [node name="Line2D" type="Line2D" parent="." unique_id=446629618]
 top_level = true
 z_index = 10
 rotation = 1.5707964
 width = 5.0
 default_color = Color(0.83137256, 0.29411766, 0.21176471, 1)
+
+[connection signal="area_entered" from="PathFollow2D/RocketOuterHitbox" to="." method="_on_rocket_outer_hitbox_area_entered"]
