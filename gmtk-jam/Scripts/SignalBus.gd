@@ -17,3 +17,6 @@ signal level1_selected
 signal level2_selected
 signal level3_selected
 signal level4_selected
+
+#enemy rocket
+signal enemy_rocket_launch(start, target)

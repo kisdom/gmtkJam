@@ -4,7 +4,7 @@ enum Difficulty{
 	MEDIUM,
 	HARD
 }
-var rocket_spawn_frequency: int = 15
+var rocket_spawn_frequency: int = 5
 var rocket_cooldown: int = 5
 var radar_cooldown: int = 10
 var defense_cooldown: int = 15
