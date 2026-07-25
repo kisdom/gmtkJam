@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://e5mra7gyif2e"]
 
-[ext_resource type="Script" uid="uid://den5wxg2ohp8l" path="res://gmtk-jam/Scenes/levels.gd" id="1_goqel"]
+[ext_resource type="Script" uid="uid://den5wxg2ohp8l" path="res://gmtk-jam/Scripts/levels.gd" id="1_goqel"]
 
 [node name="Control" type="Control" unique_id=867584306]
 layout_mode = 3
