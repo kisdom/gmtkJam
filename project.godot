@@ -15,6 +15,10 @@ run/main_scene="uid://dkx8mr5j1t07"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://gmtkJam/icon.svg"
 
+[autoload]
+
+SignalBus="*uid://ct1p8bgoy1t8q"
+
 [display]
 
 window/stretch/mode="canvas_items"

@@ -49,3 +49,5 @@ text = "Rocket"
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Defense" to="." method="_on_defense_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Radar" to="." method="_on_radar_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Rocket" to="." method="_on_rocket_pressed"]

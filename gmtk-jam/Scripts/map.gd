@@ -1,17 +1,28 @@
 extends Node2D
 
-
+enum State{
+	idle,
+	rocket,
+	defense,
+	radar
+}
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
-	for base in get_tree().get_nodes_in_group("bases"):
-		base.action_requested.connect(_on_base_action_requested)
+	SignalBus.prepare_defense.connect(_on_prepare_defense)
+	SignalBus.send_rocket.connect(_on_send_rocket)
+	SignalBus.radar_search.connect(_on_radar_search)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func _on_prepare_defense(base_node):
+	pass
 
-
-func _on_base_action_requested(base_node: Variant, action_type: Variant) -> void:
-	print(base_node.name)
+func _on_send_rocket(base_node):
+	pass
+	
+func _on_radar_search(base_node):
+	pass

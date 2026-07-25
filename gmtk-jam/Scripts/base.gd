@@ -28,4 +28,12 @@ func _on_pressed() -> void:
 
 func _on_defense_pressed() -> void:
 	panel_container.hide()
-	action_requested.emit(self, "defend")
+	SignalBus.prepare_defense.emit(self)
+
+func _on_rocket_pressed() -> void:
+	panel_container.hide()
+	SignalBus.send_rocket.emit(self)
+
+func _on_radar_pressed() -> void:
+	panel_container.hide()
+	SignalBus.radar_search.emit(self)
