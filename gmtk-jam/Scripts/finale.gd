@@ -6,7 +6,24 @@ var current_level: String = "menu"
 func _ready() -> void:
 	SignalBus.ending.connect(_show_ending)
 	SignalBus.level_relay.connect(_set_level)
+	SignalBus.tutorial_activated.connect(_show_manual)
 
+func _show_manual():
+	get_tree().paused = true
+	$CanvasLayer.visible = true
+	$CanvasLayer/Button.visible = true
+	$CanvasLayer/Button.disabled = false
+	
+	$CanvasLayer/ColorRect/Label.text = "Hold down the right mouse button
+	to move around the map.
+	By hovering your mouse over a base, you can
+	activate one of its defense mechanisms.
+	Defense creates a line with two mouse clicks,
+	able to withstand three rocket strikes.
+	Rocket sends out a rocket.
+	Destroy their bases, before yours are
+	destroyed!"
+		
 
 func _set_level(level: String):
 	current_level = level

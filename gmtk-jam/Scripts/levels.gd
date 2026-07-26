@@ -97,3 +97,7 @@ func _on_map_button_pressed():
 
 func _on_exit_pressed():
 	get_tree().quit()	
+
+
+func _on_texture_button_pressed() -> void:
+	SignalBus.tutorial_activated.emit()

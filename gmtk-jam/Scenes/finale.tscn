@@ -20,9 +20,9 @@ visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=161671738]
 z_index = 20
-offset_left = 3.0
-offset_top = 4.0
-offset_right = 1149.0
+offset_left = -14.0
+offset_top = -15.0
+offset_right = 1241.0
 offset_bottom = 651.0
 color = Color(0.18436867, 0.5681948, 0.619664, 1)
 
@@ -39,10 +39,10 @@ text = "This text should not be displayed at all!"
 [node name="Button" type="Button" parent="CanvasLayer" unique_id=597413955]
 visible = false
 z_index = 22
-offset_left = 451.0
-offset_top = 586.0
-offset_right = 706.0
-offset_bottom = 645.0
+offset_left = 899.0
+offset_top = 585.0
+offset_right = 1154.0
+offset_bottom = 648.0
 theme_override_font_sizes/font_size = 40
 disabled = true
 text = "Understood!"
