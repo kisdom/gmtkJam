@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://c662npc40iday" path="res://gmtk-jam/Scripts/base.gd" id="2_a1rxy"]
 [ext_resource type="Script" uid="uid://dg30iw5ky5oii" path="res://gmtk-jam/Scripts/defense_button.gd" id="3_od4rh"]
 [ext_resource type="Texture2D" uid="uid://by7t1d88v33g1" path="res://gmtk-jam/resources/bases/base/tile_0044.png" id="5_huh7f"]
-[ext_resource type="Texture2D" uid="uid://by7t1d88v33g1" path="res://gmtk-jam/resources/bases/base/tile_0044.png" id="5_huh7f"]
 [ext_resource type="Script" uid="uid://bo2wwhqqrtabn" path="res://gmtk-jam/Scripts/rocket_button.gd" id="5_nn43h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfd48"]

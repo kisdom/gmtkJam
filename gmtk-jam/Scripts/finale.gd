@@ -37,7 +37,8 @@ func _set_level(level: String):
 		until the space shuttle is ready to launch.
 		Survive!"
 	elif(current_level == "Level1"):
-		$CanvasLayer/ColorRect/Label.text = "All out nuclear war has broken out.
+		$CanvasLayer/ColorRect/Label.text = "All out nuclear war has broken out between
+		the Allied Society and Steel Covenant.
 		Destroy their bases before
 		they can destroy yours!"
 	elif(current_level == "Level2"):

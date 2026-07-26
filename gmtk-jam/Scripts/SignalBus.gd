@@ -12,6 +12,7 @@ signal rocket_destroyed()
 
 #difficulty change
 signal difficulty_changed(difficulty)
+signal update_values(difficulty)
 
 #level select
 signal level_relay(level)
