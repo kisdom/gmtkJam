@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://c662npc40iday" path="res://gmtk-jam/Scripts/base.gd" id="2_a1rxy"]
 [ext_resource type="Script" uid="uid://dg30iw5ky5oii" path="res://gmtk-jam/Scripts/defense_button.gd" id="3_od4rh"]
 [ext_resource type="Texture2D" uid="uid://by7t1d88v33g1" path="res://gmtk-jam/resources/bases/base/tile_0044.png" id="5_huh7f"]
+[ext_resource type="Texture2D" uid="uid://by7t1d88v33g1" path="res://gmtk-jam/resources/bases/base/tile_0044.png" id="5_huh7f"]
 [ext_resource type="Script" uid="uid://bo2wwhqqrtabn" path="res://gmtk-jam/Scripts/rocket_button.gd" id="5_nn43h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfd48"]
-size = Vector2(800.0005, 920.0003)
+size = Vector2(720.0001, 880.00006)
 
 [node name="Base" type="TextureButton" unique_id=232262875]
 z_index = 5
@@ -17,6 +18,7 @@ offset_right = 463.00003
 offset_bottom = 468.0
 scale = Vector2(0.2, 0.2)
 offset_transform_scale = Vector2(0.255, 0.255)
+mouse_filter = 1
 disabled = true
 script = ExtResource("2_a1rxy")
 
@@ -24,16 +26,17 @@ script = ExtResource("2_a1rxy")
 position = Vector2(-165, -95.00002)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=349800314]
-position = Vector2(449.99997, 254.99994)
-scale = Vector2(0.9999992, 0.9999992)
+position = Vector2(429.99994, 275.00003)
+scale = Vector2(0.9999995, 0.9999995)
 shape = SubResource("RectangleShape2D_qfd48")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=339151499]
 layout_mode = 0
 offset_left = -115.0
-offset_top = -299.99997
-offset_right = 684.9999
-offset_bottom = 59.99997
+offset_top = -280.0
+offset_right = 644.99994
+offset_bottom = 49.99994
+mouse_filter = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=890609604]
 layout_mode = 2
@@ -41,6 +44,7 @@ layout_mode = 2
 [node name="Defense" type="Button" parent="PanelContainer/HBoxContainer" unique_id=1347272826]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_font_sizes/font_size = 56
 text = "Defense"
 script = ExtResource("3_od4rh")
@@ -51,6 +55,7 @@ one_shot = true
 [node name="Rocket" type="Button" parent="PanelContainer/HBoxContainer" unique_id=751642340]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_font_sizes/font_size = 56
 text = "Rocket"
 script = ExtResource("5_nn43h")
@@ -58,13 +63,14 @@ script = ExtResource("5_nn43h")
 [node name="Timer" type="Timer" parent="PanelContainer/HBoxContainer/Rocket" unique_id=1682107239]
 one_shot = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=201602486]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=45833785]
 position = Vector2(245, 340.00003)
 scale = Vector2(30, 30)
 texture = ExtResource("5_huh7f")
 
-[connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Defense" to="." method="_on_defense_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Defense" to="PanelContainer/HBoxContainer/Defense" method="_button_pressed"]
 [connection signal="timeout" from="PanelContainer/HBoxContainer/Defense/Timer" to="PanelContainer/HBoxContainer/Defense" method="_on_timer_timeout"]

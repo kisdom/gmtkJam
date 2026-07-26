@@ -8,7 +8,6 @@ signal action_requested(base_node, action_type)
 var isPressed: bool = false
 var isEvil: bool = true
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_set_random_base_image()
 	
@@ -38,16 +37,13 @@ func _set_random_base_image() -> void:
 		
 	else:
 		print("Hiba: Nem találtam képeket ebben a mappában: " + folder_path)
-
+	
 func _base_destruction() -> void:
 	print(name + " destroyed")
 	
 	# 1. Rátöltjük a tüzet a Sprite2D-re! 
 	# (Mivel a Sprite2D középre van igazítva, a mérettől függetlenül jó helyen lesz)
 	$Sprite2D.texture = load("res://gmtk-jam/resources/fire.png")
-	
-	# Menü elrejtése és gomb letiltása
-	disabled = true
 	
 	# Ha van SignalBus bekötésed (a korábbi kódjaid alapján), azt is elsütjük
 	SignalBus.base_destroyed.emit(self)
