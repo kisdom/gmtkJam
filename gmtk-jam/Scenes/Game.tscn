@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://jsjllk2dkcyu" path="res://gmtk-jam/resources/middleEarth.jpeg" id="3_o5do0"]
 [ext_resource type="Script" uid="uid://5pe1tr8bsdie" path="res://gmtk-jam/Scripts/GameVariables.gd" id="3_s3jij"]
 [ext_resource type="PackedScene" uid="uid://dw5yceokvkv4o" path="res://gmtk-jam/Scenes/evil_base.tscn" id="4_cujw0"]
+[ext_resource type="PackedScene" uid="uid://dm0ilvyfelxhq" path="res://gmtk-jam/Scenes/finale.tscn" id="10_ahd8m"]
 
 [node name="Game" type="Node2D" unique_id=634622433]
 
@@ -27,7 +28,6 @@ offset_bottom = 279.0
 metadata/_edit_lock_ = true
 
 [node name="HUD" parent="." unique_id=1402822943 instance=ExtResource("1_hlfu4")]
-visible = false
 script = null
 
 [node name="Map" parent="." unique_id=578421521 groups=["level1", "level2", "level3"] instance=ExtResource("2_6bqmm")]
@@ -210,5 +210,7 @@ texture = ExtResource("3_o5do0")
 
 [node name="GameVariables" type="Node" parent="." unique_id=738204905]
 script = ExtResource("3_s3jij")
+
+[node name="Finale" parent="." unique_id=1432418148 instance=ExtResource("10_ahd8m")]
 
 [connection signal="timeout" from="DoomRocketCountdown" to="EnemyRockets" method="_on_doom_rocket_countdown_timeout"]

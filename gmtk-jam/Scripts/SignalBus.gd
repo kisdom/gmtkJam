@@ -13,11 +13,18 @@ signal rocket_destroyed()
 #difficulty change
 signal difficulty_changed(difficulty)
 
-# Endigs
-signal ending(endig_name: String)
+#level select
+signal level_relay(level)
+
+# Endings
+signal ending(ending_name)
+signal ending_watch(friendly_base, enemy_base)
 
 #enemy rocket
 signal enemy_rocket_launch(start, target)
 
 # Clock
 signal lastMinute
+
+#tutorial
+signal tutorial_activated()
