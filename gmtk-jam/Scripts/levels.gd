@@ -13,6 +13,9 @@ var current_level = 0:
 		if current_level_label:
 			current_level_label.text = "Level:" + levels[current_level]
 
+var enemy_base_count = 0
+var friendly_base_count = 0
+
 func play_current_level():
 	change_level(levels[current_level])
 	
@@ -58,10 +61,18 @@ func _load_level(level_name: String):
 	for base in bases.get_children():
 		base.show() 
 		base.disabled = false
+		if base.isEvil:
+			enemy_base_count += 1
+		else:
+			friendly_base_count == 1
 		
 	if level_node.has_node("Sprite2D"):
 		var sprite = level_node.get_node("Sprite2D")
 		sprite.show()
+		
+	# 3.5 Looking for win condition
+	SignalBus.ending_watch.emit(friendly_base_count, enemy_base_count)
+		
 		
 	# 4. Enemy activation
 	$"../DoomRocketCountdown".start()	

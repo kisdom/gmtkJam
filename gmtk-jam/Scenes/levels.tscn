@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cpumcmwrlhtqk" path="res://gmtk-jam/resources/menu/prev_hover.png" id="11_wxhaa"]
 [ext_resource type="Texture2D" uid="uid://dlyxjfowd30cy" path="res://gmtk-jam/resources/menu/exit_normal.png" id="12_uxh7f"]
 [ext_resource type="Texture2D" uid="uid://ck2rlmvw3gwyy" path="res://gmtk-jam/resources/menu/exit_hover.png" id="13_1gbi2"]
-[ext_resource type="PackedScene" uid="uid://dnndene3lxs58" path="res://gmtk-jam/Scenes/warning.tscn" id="14_1gbi2"]
+[ext_resource type="PackedScene" uid="uid://b1vntvkkwexgf" path="res://gmtk-jam/Scenes/warning.tscn" id="14_1gbi2"]
 
 [node name="Control" type="Control" unique_id=867584306]
 layout_mode = 3

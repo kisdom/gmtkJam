@@ -7,23 +7,24 @@ var friendly_base_count: int
 
 func _ready():
 	SignalBus.base_destroyed.connect(_base_destroyed)
+	SignalBus.ending_watch.connect(_base_count)
 	
 
-func setup():
-	var bases_node = map.get_child(0).get_node("Bases")
-	for base in bases_node.get_children():
-		if base.isEvil:
-			enemy_base_count += 1
-		else:
-			friendly_base_count += 1
+func _base_count(friendly_bases: int, enemy_bases: int):
+	print("Bases are counted!")
+	friendly_base_count = friendly_bases
+	enemy_base_count = enemy_bases
 
 
 func _base_destroyed(base_node):
+	print("Check condition")
 	if base_node.isEvil:
 		enemy_base_count -= 1
+		print(enemy_base_count)
 		if enemy_base_count == 0:
-			SignalBus.endig.emit("win")
+			SignalBus.ending.emit("win")
 	else:
 		friendly_base_count -= 1
+		print(friendly_base_count)
 		if friendly_base_count == 0:
-			SignalBus.endig.emit("lost")
+			SignalBus.ending.emit("lost")
