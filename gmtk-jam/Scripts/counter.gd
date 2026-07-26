@@ -1,5 +1,5 @@
 extends Node2D
-@export var time_left: float = 62.0
+@export var time_left: float = 121.0
 var red = Color(1.0,0.0,0.0,1.0)
 var yellow = Color(0.845, 0.737, 0.13, 1.0)
 var minutes

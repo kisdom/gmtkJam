@@ -5,7 +5,7 @@ extends Control
 
 @onready var current_level_label = $current_level
 var selected_level: String = ""
-var levels = ["Level1","Level2","Level3","MiddleEarthMap"]
+var levels = ["Level1","Level2","Level3", "MiddleEarthMap"]
 var current_level = 0:
 	set(value):
 		current_level = value
@@ -18,6 +18,7 @@ var friendly_base_count = 0
 
 func play_current_level():
 	change_level(levels[current_level])
+	SignalBus.level_relay.emit(selected_level)
 	
 func next_level():
 	current_level += 1
