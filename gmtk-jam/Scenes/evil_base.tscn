@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://uieenfyi5ge5" path="res://gmtk-jam/Scripts/evil_base.gd" id="2_g13en"]
 [ext_resource type="Texture2D" uid="uid://bh38ry4fu5t1s" path="res://gmtk-jam/resources/bases/enemy_base/tile_0062.png" id="2_u03h3"]
+[ext_resource type="Texture2D" uid="uid://bh38ry4fu5t1s" path="res://gmtk-jam/resources/bases/enemy_base/tile_0062.png" id="2_u03h3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hx1s"]
 size = Vector2(490, 515)
