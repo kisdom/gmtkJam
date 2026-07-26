@@ -16,17 +16,17 @@ func _ready() -> void:
 	
 func difficulty_changed(difficulty: Difficulty):
 	if (difficulty == Difficulty.EASY):
-		rocket_spawn_frequency = 20
-		rocket_cooldown = 2
+		rocket_spawn_frequency = 6
+		rocket_cooldown = 4
 		radar_cooldown = 5
-		defense_cooldown = 10
+		defense_cooldown = 5
 	elif (difficulty == Difficulty.MEDIUM):
-		rocket_spawn_frequency = 15
-		rocket_cooldown = 5
+		rocket_spawn_frequency = 4
+		rocket_cooldown = 4
 		radar_cooldown = 10
-		defense_cooldown = 15
+		defense_cooldown = 10
 	elif (difficulty == Difficulty.HARD):
-		rocket_spawn_frequency = 10
-		rocket_cooldown = 10
+		rocket_spawn_frequency = 3
+		rocket_cooldown = 4
 		radar_cooldown = 15
-		defense_cooldown = 20
+		defense_cooldown = 15

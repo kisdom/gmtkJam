@@ -4,6 +4,14 @@ extends Control
 @onready var camera = $Camera2D
 
 @onready var current_level_label = $current_level
+
+enum Difficulty{
+	EASY,
+	MEDIUM,
+	HARD
+}
+
+var current_difficulty = Difficulty.EASY
 var selected_level: String = ""
 var levels = ["Level1","Level2","Level3", "MiddleEarthMap"]
 var current_level = 0:
@@ -28,6 +36,14 @@ func previous_level():
 
 func _ready() -> void:
 	pass
+	
+func _check_difficulty() -> void:
+	if selected_level == "Level1":
+		current_difficulty = Difficulty.EASY
+	elif selected_level == "Level2":
+		current_difficulty = Difficulty.MEDIUM
+	if selected_level == "Level3" || selected_level == "MiddleEarthMap" :
+		current_difficulty = Difficulty.HARD	
 
 func change_level(level_name: String):
 	if selected_level != "":
@@ -35,6 +51,8 @@ func change_level(level_name: String):
 		
 	_load_level(level_name)
 	selected_level = level_name
+	_check_difficulty()
+	SignalBus.difficulty_changed.emit(current_difficulty)
 	current_level_label.text = selected_level
 	map.show()
 	hide()
