@@ -7,22 +7,15 @@
 [ext_resource type="Script" uid="uid://bo2wwhqqrtabn" path="res://gmtk-jam/Scripts/rocket_button.gd" id="5_nn43h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfd48"]
-size = Vector2(490, 460.00006)
+size = Vector2(720.0001, 650.0001)
 
 [node name="Base" type="TextureButton" unique_id=232262875]
-visible = false
 z_index = 5
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -256.0
-offset_right = 256.0
-offset_bottom = 256.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = -1
+offset_left = -49.0
+offset_top = -44.000008
+offset_right = 463.00003
+offset_bottom = 468.0
 scale = Vector2(0.2, 0.2)
 offset_transform_scale = Vector2(0.255, 0.255)
 disabled = true
@@ -33,12 +26,11 @@ script = ExtResource("2_a1rxy")
 position = Vector2(-165, -95.00002)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=349800314]
-position = Vector2(409.99994, 384.99994)
-scale = Vector2(0.9999997, 0.9999997)
+position = Vector2(429.99994, 389.99997)
+scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_qfd48")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=339151499]
-visible = false
 layout_mode = 0
 offset_left = -100.0
 offset_top = -280.0

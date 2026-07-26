@@ -41,26 +41,29 @@ func change_level(level_name: String):
 	
 
 func unload_level(level_name: String):
+	# Mivel már a Map alatt van, csak megkeressük és elrejtjük
 	var level_node = map.get_node(level_name)
-	# A reparent áthelyezi a node-ot, a call_deferred pedig garantálja, hogy ez biztonságosan történjen meg
-	level_node.call_deferred("reparent", self, false)
+	level_node.hide() 
+	
+	# Ha akarod, itt kikapcsolhatod a bázisokat is, hogy ne kattinthass rájuk véletlenül láthatatlanul
+	if level_node.has_node("Bases"):
+		for base in level_node.get_node("Bases").get_children():
+			base.disabled = true
 
 func _load_level(level_name: String):
-	var level_node = get_node(level_name)
-	print(level_node.get_children())
+	# Megkeressük a Map alatt, és egyszerűen láthatóvá tesszük
+	var level_node = map.get_node(level_name)
+	level_node.show()
 	
-	# 1. Áttesszük a map alá (alapból a lista végére kerül)
-	level_node.call_deferred("reparent", map, false)
+	# Opcionális: Ha akarod, a move_child-al továbbra is előre hozhatod, hogy ne takarjon ki semmit
+	map.move_child(level_node, 0)
 	
-	# 2. Utasítjuk a map-et, hogy amint megkapta a node-ot, tegye a 0. indexre!
-	map.call_deferred("move_child", level_node, 0)
-	
-	# 3. Bázisok aktiválása (Egy apró módosítással a biztonság kedvéért!)
-	var bases = level_node.get_node("Bases") 
-	
-	for base in bases.get_children():
-		base.show() 
-		base.disabled = false
+	# Bázisok aktiválása
+	if level_node.has_node("Bases"):
+		var bases = level_node.get_node("Bases") 
+		for base in bases.get_children():
+			base.show() 
+			base.disabled = false
 		if base.isEvil:
 			enemy_base_count += 1
 		else:
@@ -74,8 +77,8 @@ func _load_level(level_name: String):
 	SignalBus.ending_watch.emit(friendly_base_count, enemy_base_count)
 		
 		
-	# 4. Enemy activation
-	$"../DoomRocketCountdown".start()	
+	# Enemy activation
+	$"../DoomRocketCountdown".start()
 
 
 func _on_next_pressed():
