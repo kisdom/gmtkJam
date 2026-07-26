@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dw5yceokvkv4o"]
 
-[ext_resource type="Texture2D" uid="uid://bp30upw7dvq03" path="res://gmtk-jam/resources/base.png" id="1_8e5yb"]
 [ext_resource type="Script" uid="uid://uieenfyi5ge5" path="res://gmtk-jam/Scripts/evil_base.gd" id="2_g13en"]
+[ext_resource type="Texture2D" uid="uid://bh38ry4fu5t1s" path="res://gmtk-jam/resources/bases/enemy_base/tile_0062.png" id="2_u03h3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hx1s"]
 size = Vector2(490, 515)
@@ -12,15 +12,18 @@ offset_left = 51.999996
 offset_top = 58.000004
 offset_right = 564.0
 offset_bottom = 570.0
-rotation = 3.1415927
 scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("1_8e5yb")
 script = ExtResource("2_g13en")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1893768341]
 position = Vector2(10.000001, 19.999998)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2126751113]
-position = Vector2(245, 244.99997)
+position = Vector2(-270, -315.00003)
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_4hx1s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1648080412]
+position = Vector2(-259.99997, -300.00003)
+scale = Vector2(30, 30)
+texture = ExtResource("2_u03h3")
