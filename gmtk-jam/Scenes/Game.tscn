@@ -31,6 +31,7 @@ metadata/_edit_lock_ = true
 script = null
 
 [node name="Map" parent="." unique_id=578421521 groups=["level1", "level2", "level3"] instance=ExtResource("2_6bqmm")]
+visible = true
 
 [node name="Level1" type="Node2D" parent="Map" unique_id=774688046]
 visible = false
