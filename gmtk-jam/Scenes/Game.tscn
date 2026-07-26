@@ -30,7 +30,6 @@ metadata/_edit_lock_ = true
 script = null
 
 [node name="Map" parent="." unique_id=578421521 groups=["level1", "level2", "level3"] instance=ExtResource("2_6bqmm")]
-visible = true
 position = Vector2(-176, -176)
 metadata/_edit_lock_ = true
 
@@ -245,6 +244,7 @@ offset_right = 1749.0
 offset_bottom = 798.0
 
 [node name="MiddleEarthMap" type="Node2D" parent="Map" unique_id=2074436093]
+visible = false
 position = Vector2(254, -2)
 
 [node name="Bases" type="Node2D" parent="Map/MiddleEarthMap" unique_id=1625913704]
