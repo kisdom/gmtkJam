@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dm0ilvyfelxhq"]
+
+[ext_resource type="Script" uid="uid://bkg20bup1326x" path="res://gmtk-jam/Scripts/finale.gd" id="1_gfm84"]
+
+[node name="Finale" type="Control" unique_id=1432418148]
+process_mode = 3
+visible = false
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 43.0
+offset_bottom = 44.0
+script = ExtResource("1_gfm84")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=738412466]
+layer = 20
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=161671738]
+z_index = 20
+offset_left = -14.0
+offset_top = -15.0
+offset_right = 1241.0
+offset_bottom = 651.0
+color = Color(0.18436867, 0.5681948, 0.619664, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect" unique_id=246148694]
+z_index = 20
+layout_mode = 0
+offset_left = 19.0
+offset_top = 15.0
+offset_right = 1141.0
+offset_bottom = 573.0
+theme_override_font_sizes/font_size = 50
+text = "This text should not be displayed at all!"
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=597413955]
+visible = false
+z_index = 22
+offset_left = 899.0
+offset_top = 585.0
+offset_right = 1154.0
+offset_bottom = 648.0
+theme_override_font_sizes/font_size = 40
+disabled = true
+text = "Understood!"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

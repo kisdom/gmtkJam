@@ -13,7 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://cpumcmwrlhtqk" path="res://gmtk-jam/resources/menu/prev_hover.png" id="11_wxhaa"]
 [ext_resource type="Texture2D" uid="uid://dlyxjfowd30cy" path="res://gmtk-jam/resources/menu/exit_normal.png" id="12_uxh7f"]
 [ext_resource type="Texture2D" uid="uid://ck2rlmvw3gwyy" path="res://gmtk-jam/resources/menu/exit_hover.png" id="13_1gbi2"]
-[ext_resource type="PackedScene" uid="uid://dnndene3lxs58" path="res://gmtk-jam/Scenes/warning.tscn" id="14_1gbi2"]
+[ext_resource type="PackedScene" uid="uid://b1vntvkkwexgf" path="res://gmtk-jam/Scenes/warning.tscn" id="14_1gbi2"]
+[ext_resource type="Texture2D" uid="uid://cg3x2rwk3ace7" path="res://gmtk-jam/resources/questionMark.png" id="14_j64c1"]
 
 [node name="Control" type="Control" unique_id=867584306]
 layout_mode = 3
@@ -93,6 +94,18 @@ texture_pressed = ExtResource("13_1gbi2")
 texture_hover = ExtResource("13_1gbi2")
 stretch_mode = 0
 
+[node name="TextureButton" type="TextureButton" parent="." unique_id=90938625]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 489.0
+offset_right = 155.0
+offset_bottom = 640.0
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureButton" unique_id=2103616628]
+position = Vector2(75, 80)
+scale = Vector2(0.5703125, 0.5625)
+texture = ExtResource("14_j64c1")
+
 [node name="warnings" type="Node2D" parent="." unique_id=1658674108]
 
 [node name="warning" parent="warnings" unique_id=1005559438 instance=ExtResource("14_1gbi2")]
@@ -111,3 +124,4 @@ scale = Vector2(2.2980504, 2.29805)
 [connection signal="pressed" from="next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="prev" to="." method="_on_prev_pressed"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

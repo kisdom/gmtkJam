@@ -9,6 +9,8 @@ var rocket_cooldown: int = 5
 var radar_cooldown: int = 10
 var defense_cooldown: int = 15
 
+var current_level: String = "menu"
+
 func _ready() -> void:
 	SignalBus.difficulty_changed.connect(difficulty_changed)
 	
