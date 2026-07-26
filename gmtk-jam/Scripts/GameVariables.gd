@@ -7,7 +7,7 @@ enum Difficulty{
 var rocket_spawn_frequency: int = 5
 var rocket_cooldown: int = 5
 var radar_cooldown: int = 10
-var defense_cooldown: int = 15
+var defense_cooldown: int = 10
 
 var current_level: String = "menu"
 
@@ -20,13 +20,16 @@ func difficulty_changed(difficulty: Difficulty):
 		rocket_cooldown = 4
 		radar_cooldown = 5
 		defense_cooldown = 5
+		SignalBus.update_values.emit(Difficulty.EASY)
 	elif (difficulty == Difficulty.MEDIUM):
 		rocket_spawn_frequency = 4
 		rocket_cooldown = 4
 		radar_cooldown = 10
 		defense_cooldown = 10
+		SignalBus.update_values.emit(Difficulty.MEDIUM)
 	elif (difficulty == Difficulty.HARD):
 		rocket_spawn_frequency = 3
 		rocket_cooldown = 4
 		radar_cooldown = 15
 		defense_cooldown = 15
+		SignalBus.update_values.emit(Difficulty.HARD)
