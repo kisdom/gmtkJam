@@ -14,6 +14,8 @@ func _base_count(friendly_bases: int, enemy_bases: int):
 	print("Bases are counted!")
 	friendly_base_count = friendly_bases
 	enemy_base_count = enemy_bases
+	print(friendly_base_count)
+	print(enemy_base_count)
 
 
 func _base_destroyed(base_node):
